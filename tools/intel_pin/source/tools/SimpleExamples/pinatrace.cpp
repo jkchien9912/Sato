@@ -88,10 +88,10 @@ static VOID EmitMem(VOID* ea, INT32 size)
 
 static VOID RecordMem(VOID* ip, CHAR r, VOID* addr, INT32 size, BOOL isPrefetch)
 {
-    std::cout << ip << ": " << r << " " << setw(2 + 2 * sizeof(ADDRINT)) << addr << " " << dec << setw(2) << size << " " << hex
-              << setw(2 + 2 * sizeof(ADDRINT));
-    if (!isPrefetch) EmitMem(addr, size);
-    std::cout << endl;
+    std::cout << r << " " << setw(2 + 2 * sizeof(ADDRINT)) << addr << " " << dec << setw(2) << size << " " << hex << endl;
+    // << setw(2 + 2 * sizeof(ADDRINT));
+    // if (!isPrefetch) EmitMem(addr, size);
+    // std::cout << endl;
 }
 
 static VOID* WriteAddr;
