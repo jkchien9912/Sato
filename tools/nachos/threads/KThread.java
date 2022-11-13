@@ -65,7 +65,6 @@ public class KThread {
 			tcb = TCB.currentTCB();
 			name = "main";
 			restoreState();
-
 			createIdleThread();
 		}
 	}
