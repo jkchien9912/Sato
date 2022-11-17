@@ -14,6 +14,6 @@ rm memcached-${MEMCACHED_VERSION}.tar.gz
 cd memcached-${MEMCACHED_VERSION}
 ./configure && make
 
-cd $WORKDIR/../../tools/intel_pin/source/tools/SimpleExamples
+cd $WORKDIR/../../tools/intel-pin/source/tools/SimpleExamples
 make all TARGET=intel64
 ../../../pin -t obj-intel64/pinatrace.so -- ${WORKDIR}/memcached-${MEMCACHED_VERSION}/memcached

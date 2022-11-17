@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# dependencies
+WORKDIR=$( pwd; )
 # dependencies
 sudo apt update
 sudo apt install -y default-jre maven
