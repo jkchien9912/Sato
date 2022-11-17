@@ -1,13 +1,12 @@
 const express = require('express');
 const {Kafka, KafkaJSBrokerNotFound}=require('kafkajs');
-const memjs = require('memjs'); 
 const path = require('path');
-var fs = require('fs');
 const app = express();
 const port = 4000;
 
 var application_root = __dirname;
-// var Memcached = require('memcached');
+var Memcached = require('memcached');
+var uuid = require('uuid'); 
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -16,36 +15,21 @@ app.use( express.static( path.join( application_root, '/') ) );
 //Connect to Redpanda
 const kafka = new Kafka({
   clientId: 'my-app',
-  brokers: ['redpanda:9092']
+  brokers: ['localhost:9092']
 })
 
 //Connect to memcached
 const url = "localhost:11211"; 
-const memcached = memjs.Client.create(url); 
-// var memcached = new Memcached(url);
+var memcached = new Memcached();
+memcached.connect(url, function(err, conn) {
+  if(err) {
+    console.log(conn.server,'error while connect to memcached'); 
+  }
+})
 
 //This function tests the REST API
 app.get('/api/hello', (req, res) => {
   res.send({'title':'Hello World!'})
-})
-
-//This function tests the connectivity to Redpanda
-app.get('/api/test', async (req,res)=>
-{
-  const producer = kafka.producer()
-
-  console.log('connecting...');
-  await producer.connect()
-
-  console.log('sending...');
-  await producer.send({
-    topic: 'test-topic',
-    messages: [
-      { value: 'Hello Redpanda!' },
-    ],
-  })
-  
-  await producer.disconnect().then(()=>{ res.send({'status':'test message sent to test-topic'});})
 })
 
 //Delete the topics
@@ -66,33 +50,99 @@ app.get('/', function (req, res) {
   res.redirect('/index.html');
 })
 
-app.get('/api/memcached', async (req, res)=>{
-  try {
-    const requestType = req.query.type; 
-    const id = req.query.id; 
-    if (requestType == "set") {
-      const body = req.query.body;
-      try {
-        const data = { id, body };
-        await memcached.set(id, JSON.stringify(data), { expires: 12 });
-        return res.status(201).json(data);
-      } catch (err) {
-        console.log("Error memcached");
-        console.log(err);
-      }
-    } else if (requestType == "get") {
-      memcached.get(id, (err, val) => {
-        if (err) throw err; 
-        if (val !== null) {
-          return res.status(200).json(JSON.parse(val)); 
+// Produce basic data for respanda
+app.get('/api/produce', async (req, res) => {
+  // Init Redpanda producer
+  const producer = kafka.producer(); 
+  await producer.connect(); 
+  await producer.send({
+    topic: 'my-app',
+    messages: [
+      { value: 'Hello Redpanda!' },
+    ],
+  })
+  await producer.disconnect().then(()=>{ res.send({'status':'test message sent to my-app'});})
+})
+
+// Consume data fetched by redpanda
+app.get('/api/consume', async (req, res) => {
+  // Init Redpanda consumer
+  const consumer = kafka.consumer({groupId: uuid.v4()}); 
+  await consumer.connect();
+  await consumer.subscribe({ topic: 'my-app' });
+
+  consumer.run({
+      eachMessage: async ({ topic, partition, message }) => {
+        id=message.key.toString(); 
+        // TODO: parse more complex data
+        value=message.value.toString();
+
+        const data = { id, value }
+        console.log(data)
+        memcached.set(id, JSON.stringify(data), 10000, function (err) {
+          if(err) throw new err;
+        });
+        
+        if (id=='STOP') { 
+          console.log('\n\nStopping the data generation\n\n'); 
+          consumer.disconnect(); 
+          worker.terminate();
         }
-      })
-    }
-  } catch (err) {
-    console.log("Did not giving the correct format for accessing memcached"); 
+      }, 
+    }); 
+
+})
+
+// Testing on data stored in redpanda pipeline
+app.get('/api/get', async (req, res, next) => {
+  try {
+    const id = req.query.id; 
+    memcached.get(id, function (err, val) {
+      if (err)
+        throw err;
+      if (val !== null) {
+        console.log(val)
+        return res.status(200).json(JSON.parse(val));
+      } else {
+        return next(); 
+      }
+    })
+  } catch(err) {
+    console.log("Did not give the correct format for accessing memcached"); 
     console.log(err); 
   }
 })
+
+// Testing on memcached
+app.get('/api/memcached', async (req, res, next)=>{
+  try {
+    const requestType = req.query.type; 
+    if (requestType == "set") {
+      const body = req.query.body;
+      const id = req.query.id; 
+      const data = { id, body }
+      memcached.set(id, JSON.stringify(data), 10000, function (err) {
+        if(err) throw new err;
+      });
+      return res.status(201).json(data);
+    } else if (requestType == "get") {
+      const id = req.query.id; 
+      memcached.get(id, function (err, val) {
+          if (err)
+            throw err;
+          if (val !== null) {
+            return res.status(200).json(JSON.parse(val));
+          } else {
+            return next(); 
+          }
+        })
+    }
+  } catch (err) {
+    console.log("Did not give the correct format for accessing memcached"); 
+    console.log(err); 
+  }
+})
+
 
 //Main 
 app.listen(port, () => {
