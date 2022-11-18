@@ -16,6 +16,7 @@ cd memcached-${MEMCACHED_VERSION}
 
 cd $WORKDIR/../../tools
 tar -xvzf intel-pin.tar.gz
+cp pin-app/pinatrace.cpp pin-3.25-98650-g8f6168173-gcc-linux/source/tools/SimpleExamples/
 cd pin-3.25-98650-g8f6168173-gcc-linux/source/tools/SimpleExamples
 make all TARGET=intel64
 ../../../pin -t obj-intel64/pinatrace.so -- ${WORKDIR}/memcached-${MEMCACHED_VERSION}/memcached
