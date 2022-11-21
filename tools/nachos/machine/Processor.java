@@ -83,6 +83,8 @@ public final class Processor {
 
 	/**
 	 * Start executing instructions at the current PC. Never returns.
+	 Tarsonis: we can modify this function to run memory pattern instead
+	 to evaluate the proposed method
 	 */
 	public void run() {
 		Lib.debug(dbgProcessor, "starting program in current thread");

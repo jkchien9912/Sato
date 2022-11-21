@@ -17,6 +17,8 @@ security =	Privilege NachosSecurityManager
 
 ag =		AutoGrader
 
+membench = MemPattern
+
 # BoatGrader
 
 threads =	ThreadedKernel KThread Alarm \
@@ -40,7 +42,7 @@ vm =		VMKernel VMProcess
 
 network = 	NetKernel NetProcess PostOffice MailMessage
 
-ALLDIRS = machine security ag threads userprog vm network
+ALLDIRS = machine security ag threads userprog vm network membench
 
 PACKAGES := $(patsubst %,nachos.%,$(ALLDIRS))
 
