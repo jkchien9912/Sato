@@ -3,6 +3,7 @@
 package nachos.machine;
 
 import nachos.security.*;
+import nachos.membench.*;
 
 /**
  * The <tt>Processor</tt> class simulates a MIPS processor that supports a
@@ -93,17 +94,30 @@ public final class Processor {
 
 		Machine.autoGrader().runProcessor(privilege);
 
-		Instruction inst = new Instruction();
+		// Instruction inst = new Instruction();
 
-		while (true) {
+		// while (true) {
+		// 	try {
+		// 		inst.run();
+		// 	}
+		// 	catch (MipsException e) {
+		// 		e.handle();
+		// 	}
+
+		// 	privilege.interrupt.tick(false);
+		// }
+		MemPattern pattern = new MemPattern(Config.getString("MemBench.filename"));
+		for (int i = 0; i < pattern.records.size(); ++i) {
+			var record = pattern.records.get(i);
 			try {
-				inst.run();
+				if (record.type == 'R') {
+					readMem(record.addr32, record.size);
+				} else {
+					writeMem(record.addr32, record.size, 1);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			catch (MipsException e) {
-				e.handle();
-			}
-
-			privilege.interrupt.tick(false);
 		}
 	}
 
