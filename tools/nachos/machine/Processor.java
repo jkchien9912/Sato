@@ -45,7 +45,7 @@ public final class Processor {
 		for (int i = 0; i < numUserRegisters; i++)
 			registers[i] = 0;
 
-		mainMemory = new byte[pageSize * numPhysPages];
+		mainMemory = new byte[physicalPageSize * numPhysPages];
 
 		if (usingTLB) {
 			translations = new TranslationEntry[tlbSize];
@@ -247,12 +247,12 @@ public final class Processor {
 	 * <tt>pageSize - 1</tt>.
 	 * @return a 32-bit address consisting of the specified page and offset.
 	 */
-	public static int makeAddress(int page, int offset) {
-		Lib.assertTrue(page >= 0 && page < maxPages);
-		Lib.assertTrue(offset >= 0 && offset < pageSize);
+	// public static int makeAddress(int page, int offset) {
+	// 	Lib.assertTrue(page >= 0 && page < maxPages);
+	// 	Lib.assertTrue(offset >= 0 && offset < pageSize);
 
-		return (page * pageSize) | offset;
-	}
+	// 	return (page * pageSize) | offset;
+	// }
 
 	/**
 	 * Extract the page number component from a 32-bit address.
@@ -260,8 +260,8 @@ public final class Processor {
 	 * @param address the 32-bit address.
 	 * @return the page number component of the address.
 	 */
-	public static int pageFromAddress(int address) {
-		return (int) (((long) address & 0xFFFFFFFFL) / pageSize);
+	public static int vpnFromAddress(int vaddr) {
+		return (int) (((long) vaddr & 0xFFFFFFFFL) / Processor.virtualPageSize);
 	}
 
 	/**
@@ -270,8 +270,16 @@ public final class Processor {
 	 * @param address the 32-bit address.
 	 * @return the offset component of the address.
 	 */
-	public static int offsetFromAddress(int address) {
-		return (int) (((long) address & 0xFFFFFFFFL) % pageSize);
+	public static int voffsetFromAddress(int vaddr) {
+		return (int) (((long) vaddr & 0xFFFFFFFFL) % Processor.virtualPageSize);
+	}
+
+	public static int stepFromVOffset(int voffset) {
+		return voffset / Processor.physicalPageSize;
+	}
+
+	public static int poffsetFromVOffset(int voffset) {
+		return voffset % Processor.physicalPageSize;
 	}
 
 	private void finishLoad() {
@@ -303,23 +311,40 @@ public final class Processor {
 		}
 
 		// calculate virtual page number and offset from the virtual address
-		int vpn = pageFromAddress(vaddr);
-		int offset = offsetFromAddress(vaddr);
+		int vpn = vpnFromAddress(vaddr);
+		int voffset = voffsetFromAddress(vaddr);
+		int step = Processor.stepFromVOffset(voffset);
+		int poffset = Processor.poffsetFromVOffset(voffset);
+		
 
 		TranslationEntry entry = null;
 
-		// if not using a TLB, then the vpn is an index into the table
+		// if not using a TLB, then the vpn is an index into the table (modified for Sato)
 		if (!usingTLB) {
-			if (translations == null || vpn >= translations.length
-					|| translations[vpn] == null || !translations[vpn].valid) {
-				privilege.stats.numPageFaults++;
-				Lib.debug(dbgProcessor, "\t\tpage fault");
-				throw new MipsException(exceptionPageFault, vaddr);
+
+			// page fault if any condition met
+			try {
+				if (translations == null || vpn >= translations.length
+						|| translations[vpn] == null || !translations[vpn].getEntry(step).valid) {
+					privilege.stats.numPageFaults++;
+					Lib.debug(dbgProcessor, "\t\tpage fault");
+					throw new MipsException(exceptionPageFault, vaddr);
+				}
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
 
-			entry = translations[vpn];
+			try {
+				entry = translations[vpn].getEntry(step);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		// else, look through all TLB entries for matching vpn
+
+
+		// else, look through all TLB entries for matching vpn (not modified for Sato)
 		else {
 			for (int i = 0; i < tlbSize; i++) {
 				if (translations[i].valid && translations[i].vpn == vpn) {
@@ -352,7 +377,8 @@ public final class Processor {
 		if (writing)
 			entry.dirty = true;
 
-		int paddr = (ppn * pageSize) + offset;
+		// int paddr = (ppn * pageSize) + offset;
+		int paddr = (ppn * Processor.physicalPageSize) + poffset;
 
 		if (Lib.test(dbgProcessor))
 			System.out.println("\t\tpaddr=0x" + Lib.toHexString(paddr));
@@ -558,11 +584,14 @@ public final class Processor {
 	 */
 	private TranslationEntry[] translations;
 
-	/** Size of a page, in bytes. */
-	public static final int pageSize = 0x400;
+	/** Size of a physical/remote page, in bytes. */
+	public static final int physicalPageSize = 0x400;
+
+	/** Size of a virtual page, in bytes. */
+	public static final int virtualPageSize = 0x1000;
 
 	/** Number of pages in a 32-bit address space. */
-	public static final int maxPages = (int) (0x100000000L / pageSize);
+	public static final int maxPages = (int) (0x100000000L / physicalPageSize);
 
 	/** Number of physical pages in memory. */
 	private int numPhysPages;

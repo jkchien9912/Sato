@@ -33,6 +33,9 @@ public final class TranslationEntry {
 		this.readOnly = readOnly;
 		this.used = used;
 		this.dirty = dirty;
+		this.maxStep = (int)(Processor.virtualPageSize / Processor.physicalPageSize);
+		this.head = null;
+		this.next = null;
 	}
 
 	/**
@@ -48,6 +51,27 @@ public final class TranslationEntry {
 		readOnly = entry.readOnly;
 		used = entry.used;
 		dirty = entry.dirty;
+		this.maxStep = (int)(Processor.virtualPageSize / Processor.physicalPageSize);
+		this.head = null;
+		this.next = null;
+	}
+
+	public TranslationEntry getEntry(int step) throws Exception{
+		TranslationEntry cur = this.head;
+
+		if(step > this.maxStep) {
+			throw new AddressException("step beyond boundary");
+		}
+
+		for(int i = 0; i < step; i++){
+			cur = cur.next;
+
+			if(cur == null) {
+				throw new AddressException("phyiscal pages not linked properly");
+			}
+		}
+
+		return cur;
 	}
 
 	/** The virtual page number. */
@@ -78,4 +102,23 @@ public final class TranslationEntry {
 	 * user program.
 	 */
 	public boolean dirty;
+
+	public int maxStep;
+
+	public TranslationEntry head;
+
+	public TranslationEntry next;
+
+	private class AddressException extends Exception {
+		public AddressException(String message) {
+			this.message = message;
+		}
+
+		@Override
+		public String toString() {
+			return message;
+		}
+
+		public String message;
+	}
 }
