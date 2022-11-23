@@ -34,10 +34,15 @@ public final class MemPattern {
         }
 
         // Calculate addr32 for each record
+        int maxOffset = 0;
         for (int i = 0; i < records.size(); ++i) {
-            records.get(i).addr32 = magic + 
-                                    (int)Math.min(records.get(i).addr64 - minAddr64, Integer.MAX_VALUE);
+            if (records.get(i).addr64 - minAddr64 <= Integer.MAX_VALUE) {
+                int offset = (int)(records.get(i).addr64 - minAddr64);
+                maxOffset = Math.max(maxOffset, offset);
+                records.get(i).addr32 = magic + offset;
+            }
         }
+        range = maxOffset;
     }
 
     public memTraceRecord getNextRecord() {
@@ -66,5 +71,6 @@ public final class MemPattern {
 
     public ArrayList<memTraceRecord> records = new ArrayList<>();
     public int currIndex;
-    final int magic = 6666;
+    private final int magic = 0;
+    public int range = 0;
 }

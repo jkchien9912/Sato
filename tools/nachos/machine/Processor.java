@@ -107,6 +107,7 @@ public final class Processor {
 		// 	privilege.interrupt.tick(false);
 		// }
 		MemPattern pattern = new MemPattern(Config.getString("MemBench.filename"));
+		System.out.printf("Memory size is %d\n", pattern.range);
 		for (int i = 0; i < pattern.records.size(); ++i) {
 			var record = pattern.records.get(i);
 			try {
@@ -601,6 +602,7 @@ public final class Processor {
 	private TranslationEntry[] translations;
 
 	/** Size of a physical/remote page, in bytes. */
+	public static final int pageSize = 0x400;
 	public static final int physicalPageSize = 0x400;
 
 	/** Size of a virtual page, in bytes. */

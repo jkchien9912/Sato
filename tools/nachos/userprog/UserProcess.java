@@ -65,8 +65,9 @@ public class UserProcess {
 	 * @return <tt>true</tt> if the program was successfully executed.
 	 */
 	public boolean execute(String name, String[] args) {
-		if (!load(name, args))
-			return false;
+		System.out.printf("start executing process\n");
+		// if (!load(name, args))
+		// 	return false;
 
 		thread = new UThread(this);
 		thread.setName(name).fork();
