@@ -17,15 +17,18 @@ public final class MemPattern {
             String line = reader.readLine();
             while (line != null) {
                 String[] parseRecord = line.split("\\s+");
-                if (parseRecord.length == 3 && 
-                    parseRecord[0].equals("R") || parseRecord[0].equals("W")) {
-                    // System.out.printf("%s %s %s\n", parseRecord[0], parseRecord[1], parseRecord[2]);
-                    Long addr64 = Long.decode(parseRecord[1]);
-                    memTraceRecord record = new memTraceRecord(addr64,
-                                                               parseRecord[0].charAt(0), 
-                                                               Integer.parseInt(parseRecord[2]));
-                    records.add(record);
-                    minAddr64 = Math.min(minAddr64, addr64);
+                if (parseRecord.length == 3) {
+                    if ((parseRecord[0].equals("R") || parseRecord[0].equals("W")) &&
+                        isInteger(parseRecord[2]) && 
+                        (parseRecord[1].startsWith("0x") && parseRecord[1].length() == 14)) {
+                        // System.out.printf("%s %s %s\n", parseRecord[0], parseRecord[1], parseRecord[2]);
+                        Long addr64 = Long.decode(parseRecord[1]);
+                        memTraceRecord record = new memTraceRecord(addr64,
+                                                                parseRecord[0].charAt(0), 
+                                                                Integer.parseInt(parseRecord[2]));
+                        records.add(record);
+                        minAddr64 = Math.min(minAddr64, addr64);
+                    }
                 }
                 line = reader.readLine();
             }
@@ -55,6 +58,18 @@ public final class MemPattern {
             System.out.printf("%c %d/%d %d\n", tmp.type, tmp.addr64, tmp.addr32, tmp.size);
         }
         System.out.printf("\n");
+    }
+
+    private static boolean isInteger(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            int num = Integer.parseInt(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 
     public class memTraceRecord {
