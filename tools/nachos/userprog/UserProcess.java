@@ -29,6 +29,29 @@ public class UserProcess {
         
         for(int i =0; i < 6000; i++){
             pageTable[i] = new TranslationEntry(i, i, false, false, false, false);
+        
+        }
+
+        for(int i = 0; i< 6000; i++){
+            int temp = i % 4;
+
+            switch (temp) {
+                case 0:
+                    pageTable[i].head = pageTable[i];
+                    pageTable[i].next = pageTable[i + 1];
+                    break;
+                case 1:
+                    pageTable[i].head = pageTable[i - 1];
+                    pageTable[i].next = pageTable[i + 1];
+                    break;
+                case 2:
+                    pageTable[i].head = pageTable[i - 2];
+                    pageTable[i].next = pageTable[i + 1];
+                    break;
+                case 3:
+                    pageTable[i].head = pageTable[i - 3];
+                    break;
+            }
         }
 	}
 
