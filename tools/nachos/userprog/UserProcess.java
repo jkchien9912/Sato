@@ -24,10 +24,12 @@ public class UserProcess {
 	 * Allocate a new process.
 	 */
 	public UserProcess() {
-		int numPhysPages = Machine.processor().getNumPhysPages();
-		pageTable = new TranslationEntry[numPhysPages];
-		for (int i = 0; i < numPhysPages; i++)
-			pageTable[i] = new TranslationEntry(i, i, true, false, false, false);
+        // Hard coded to 6000 pages
+        pageTable = new TranslationEntry[6000];
+        
+        for(int i =0; i < 6000; i++){
+            pageTable[i] = new TranslationEntry(i, i, false, false, false, false);
+        }
 	}
 
 	/**
@@ -247,7 +249,7 @@ public class UserProcess {
 			// 4 bytes for argv[] pointer; then string plus one for null byte
 			argsSize += 4 + argv[i].length + 1;
 		}
-		if (argsSize > pageSize) {
+		if (argsSize > virtualPageSize) {
 			coff.close();
 			Lib.debug(dbgProcess, "\targuments too long");
 			return false;
@@ -258,7 +260,7 @@ public class UserProcess {
 
 		// next comes the stack; stack pointer initially points to top of it
 		numPages += stackPages;
-		initialSP = numPages * pageSize;
+		initialSP = numPages * virtualPageSize;
 
 		// and finally reserve 1 page for arguments
 		numPages++;
@@ -267,7 +269,7 @@ public class UserProcess {
 			return false;
 
 		// store arguments in last page
-		int entryOffset = (numPages - 1) * pageSize;
+		int entryOffset = (numPages - 1) * virtualPageSize;
 		int stringOffset = entryOffset + args.length * 4;
 
 		this.argc = args.length;
@@ -501,7 +503,10 @@ public class UserProcess {
 
 	private int argc, argv;
 
-	private static final int pageSize = Processor.pageSize;
+	// private static final int pageSize = Processor.pageSize;
+
+    private static final int physicalPageSize = Processor.physicalPageSize;
+    private static final int virtualPageSize = Processor.virtualPageSize;
 
 	private static final char dbgProcess = 'a';
 }

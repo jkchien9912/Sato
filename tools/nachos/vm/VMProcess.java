@@ -60,14 +60,23 @@ public class VMProcess extends UserProcess {
 		Processor processor = Machine.processor();
 
 		switch (cause) {
-		default:
-			super.handleException(cause);
-			break;
+            case Processor.exceptionPageFault:
+                pageFaultHandler(Processor.regBadVAddr);
+                break;
+            default:
+                super.handleException(cause);
+                break;
 		}
 	}
 
-	private static final int pageSize = Processor.pageSize;
+    protected void pageFaultHandler(int vaddr) {
+        pageFaultCounter++;
+    }
 
+	// private static final int pageSize = Processor.pageSize;
+    private static final int physicalPageSize = Processor.physicalPageSize;
+    private static final int virtualPageSize = Processor.virtualPageSize;
+    private static int pageFaultCounter = 0;
 	private static final char dbgProcess = 'a';
 
 	private static final char dbgVM = 'v';
