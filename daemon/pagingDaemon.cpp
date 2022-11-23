@@ -18,13 +18,13 @@ int main() {
     char* mem2k = (char*)malloc(sizeof(char) * 2048);
     char* mem3k = (char*)malloc(sizeof(char) * 3072);
     
-    int serverFd;
+    int serverFd = socket(AF_INET, SOCK_STREAM, 0);
     struct sockaddr_in addr;
     addr.sin_family = AF_INET;
     addr.sin_addr.s_addr = htonl(INADDR_ANY);
     addr.sin_port = htons(PORT);
 
-    if (serverFd = socket(AF_INET, SOCK_STREAM, 0)) {
+    if (serverFd == -1) {
         std::cout<<"socket failed"<<std::endl;
         return -1;
     }
