@@ -3,6 +3,7 @@
 package nachos.machine;
 
 import nachos.security.*;
+import nachos.machine.PhysPage.AddressException;
 import nachos.membench.*;
 
 /**
@@ -342,7 +343,7 @@ public final class Processor {
 			// page fault if any condition met
 			try {
 				if (translations == null || vpn >= translations.length
-						|| translations[vpn] == null || !translations[vpn].getEntry(step).valid) {
+						|| translations[vpn] == null || !translations[vpn].valid) {
 					privilege.stats.numPageFaults++;
 					Lib.debug(dbgProcessor, "\t\tpage fault");
 					throw new MipsException(exceptionPageFault, vaddr);
@@ -353,7 +354,7 @@ public final class Processor {
 			}
 
 			try {
-				entry = translations[vpn].getEntry(step);
+				entry = translations[vpn];
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -383,7 +384,13 @@ public final class Processor {
 		}
 
 		// check if physical page number is out of range
-		int ppn = entry.ppn;
+		int ppn = -1;
+        try {
+            ppn = entry.physPage.getPage(step).ppn;
+        } catch (AddressException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 		if (ppn < 0 || ppn >= numPhysPages) {
 			Lib.debug(dbgProcessor, "\t\tbad ppn");
 			throw new MipsException(exceptionBusError, vaddr);

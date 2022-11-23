@@ -69,9 +69,27 @@ public class VMProcess extends UserProcess {
 		}
 	}
 
-    protected void pageFaultHandler(int vaddr) {
+    public void pageFaultHandler(int vaddr) {
         pageFaultCounter++;
+        
+        int ratio = Processor.virtualPageSize/Processor.physicalPageSize;
+
+        TranslationEntry[] pages = new TranslationEntry[ratio];
+
+        for(int i = 0; i < ratio; i++){
+            
+        }
     }
+
+    public void pageEviction() {
+
+    }
+
+    public void fetchRemotePage() {
+
+    }
+
+    
 
 	// private static final int pageSize = Processor.pageSize;
     private static final int physicalPageSize = Processor.physicalPageSize;

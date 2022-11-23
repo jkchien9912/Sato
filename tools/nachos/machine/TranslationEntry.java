@@ -25,17 +25,14 @@ public final class TranslationEntry {
 	 * @param used the used bit.
 	 * @param dirty the dirty bit.
 	 */
-	public TranslationEntry(int vpn, int ppn, boolean valid, boolean readOnly,
+	public TranslationEntry(int vpn, PhysPage physPage, boolean valid, boolean readOnly,
 			boolean used, boolean dirty) {
 		this.vpn = vpn;
-		this.ppn = ppn;
+		this.physPage = physPage;
 		this.valid = valid;
 		this.readOnly = readOnly;
 		this.used = used;
 		this.dirty = dirty;
-		this.maxStep = (int)(Processor.virtualPageSize / Processor.physicalPageSize);
-		this.head = null;
-		this.next = null;
 	}
 
 	/**
@@ -46,39 +43,39 @@ public final class TranslationEntry {
 	 */
 	public TranslationEntry(TranslationEntry entry) {
 		vpn = entry.vpn;
-		ppn = entry.ppn;
+		this.physPage = entry.physPage;
 		valid = entry.valid;
 		readOnly = entry.readOnly;
 		used = entry.used;
 		dirty = entry.dirty;
-		this.maxStep = (int)(Processor.virtualPageSize / Processor.physicalPageSize);
-		this.head = null;
-		this.next = null;
+		
 	}
 
-	public TranslationEntry getEntry(int step) throws Exception{
-		TranslationEntry cur = this.head;
+	// public TranslationEntry getEntry(int step) throws Exception{
+	// 	TranslationEntry cur = this.head;
 
-		if(step > this.maxStep) {
-			throw new AddressException("step beyond boundary");
-		}
+	// 	if(step > this.maxStep) {
+	// 		throw new AddressException("step beyond boundary");
+	// 	}
 
-		for(int i = 0; i < step; i++){
-			cur = cur.next;
+	// 	for(int i = 0; i < step; i++){
+	// 		cur = cur.next;
 
-			if(cur == null) {
-				throw new AddressException("phyiscal pages not linked properly");
-			}
-		}
+	// 		if(cur == null) {
+	// 			throw new AddressException("phyiscal pages not linked properly");
+	// 		}
+	// 	}
 
-		return cur;
-	}
+	// 	return cur;
+	// }
 
 	/** The virtual page number. */
 	public int vpn;
 
 	/** The physical page number. */
-	public int ppn;
+	// public int ppn;
+
+    public PhysPage physPage;
 
 	/**
 	 * If this flag is <tt>false</tt>, this translation entry is ignored.
@@ -102,23 +99,4 @@ public final class TranslationEntry {
 	 * user program.
 	 */
 	public boolean dirty;
-
-	public int maxStep;
-
-	public TranslationEntry head;
-
-	public TranslationEntry next;
-
-	private class AddressException extends Exception {
-		public AddressException(String message) {
-			this.message = message;
-		}
-
-		@Override
-		public String toString() {
-			return message;
-		}
-
-		public String message;
-	}
 }
