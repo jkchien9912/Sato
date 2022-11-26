@@ -9,6 +9,7 @@ import java.security.Permission;
 import java.io.FilePermission;
 import java.util.PropertyPermission;
 import java.net.NetPermission;
+import java.net.SocketPermission;
 import java.awt.AWTPermission;
 import java.lang.reflect.ReflectPermission;
 import java.security.PrivilegedAction;
@@ -190,6 +191,11 @@ public class NachosSecurityManager extends SecurityManager {
 			if (name.equals("getProtectionDomain") ||
 			    name.equals("accessDeclaredMembers"))
 			    return;
+			if (name.equals("loadLibrary.net") ||
+				name.equals("loadLibrary.extnet"))
+				return;
+			if (name.equals("writeFileDescriptor"))
+				return;
 		}
 
 		// required for lambda expressions
@@ -204,6 +210,12 @@ public class NachosSecurityManager extends SecurityManager {
 				// might be needed to load awt stuff
 				if (name.equals("specifyStreamHandler"))
 					return;
+				if (name.equals("getProxySelector"))
+					return;
+			}
+
+			if (perm instanceof SocketPermission) {
+				return;
 			}
 
 			if (perm instanceof RuntimePermission) {
@@ -228,6 +240,8 @@ public class NachosSecurityManager extends SecurityManager {
 		if (perm instanceof PropertyPermission) {
 			// allowed to read properties
 			if (perm.getActions().equals("read"))
+				return;
+			if (perm.getActions().equals("read,write"))
 				return;
 		}
 
