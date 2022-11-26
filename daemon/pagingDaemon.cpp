@@ -24,16 +24,17 @@ int main() {
     addr.sin_addr.s_addr = htonl(INADDR_ANY);
     addr.sin_port = htons(PORT);
 
-    if (serverFd == -1) {
+    if (serverFd < 0) {
         std::cout<<"socket failed"<<std::endl;
         return -1;
     }
 
     int res = bind(serverFd, (struct sockaddr*)&addr, sizeof(addr));
-    if (res) {
+    if (res < 0) {
         std::cout<<"bind failed"<<std::endl;
         return -1;
     }
+    listen(serverFd, 5);
 
     // clear the allocated memory
     memset(mem4k, 0, sizeof(mem4k));
@@ -47,6 +48,11 @@ int main() {
     struct sockaddr_in clientAddr;
     socklen_t addrLen = sizeof(clientAddr);
     int client = accept(serverFd, (struct sockaddr*)&clientAddr, &addrLen);
+    if (client < 0) {
+        std::cout<<"Error: accepting request from client"<<std::endl;
+        return -1;
+    }
+    std::cout<<"accept a client connection"<<std::endl;
     // server loop
     // receive tcp request and reply with corresponding data
     while (true) {
@@ -85,5 +91,7 @@ int main() {
     free(mem4k);
     free(mem8k);
     free(mem16k);
+    close(serverFd);
+    close(client);
     return 0;
 }
