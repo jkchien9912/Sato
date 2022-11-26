@@ -1,7 +1,5 @@
 package nachos.userprog;
 
-import java.util.ArrayList;
-
 import nachos.machine.*;
 import nachos.threads.*;
 import nachos.userprog.*;
@@ -31,11 +29,6 @@ public class UserKernel extends ThreadedKernel {
 				exceptionHandler();
 			}
 		});
-
-        for(int i = 0; i < Machine.processor().getNumPhysPages(); i++){
-            freePhysicalPages.add(i);
-        }
-
 	}
 
 	/**
@@ -131,6 +124,4 @@ public class UserKernel extends ThreadedKernel {
 
 	// dummy variables to make javac smarter
 	private static Coff dummy1 = null;
-
-    public static ArrayList<Integer> freePhysicalPages = new ArrayList<Integer>();
 }

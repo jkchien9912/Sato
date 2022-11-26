@@ -25,11 +25,6 @@ public class UserProcess {
 	 */
 	public UserProcess() {
         // Hard coded to 6000 pages
-        pageTable = new TranslationEntry[6000];
-        
-        for(int i = 0; i < 6000; i++){
-            pageTable[i] = new TranslationEntry(i, -1, false, false, false, false);
-        }
 	}
 
 	/**

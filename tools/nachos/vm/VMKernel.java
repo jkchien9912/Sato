@@ -1,5 +1,7 @@
 package nachos.vm;
 
+import java.util.ArrayList;
+
 import nachos.machine.*;
 import nachos.threads.*;
 import nachos.userprog.*;
@@ -13,7 +15,11 @@ public class VMKernel extends UserKernel {
 	 * Allocate a new VM kernel.
 	 */
 	public VMKernel() {
-		super();
+        super();
+
+        for(int i = 0; i < Machine.processor().getNumPhysPages(); i++){
+            VMKernel.freePhysicalPages.add(i);
+        }
 	}
 
 	/**
@@ -48,4 +54,7 @@ public class VMKernel extends UserKernel {
 	private static VMProcess dummy1 = null;
 
 	private static final char dbgVM = 'v';
+
+    public static ArrayList<Integer> freePhysicalPages = new ArrayList<Integer>();
+    public static ArrayList<Integer> pageRecord = new ArrayList<Integer>();
 }
