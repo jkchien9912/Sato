@@ -25,7 +25,7 @@ public final class MemPattern {
                         Long addr64 = Long.decode(parseRecord[1]);
                         memTraceRecord record = new memTraceRecord(addr64,
                                                                 parseRecord[0].charAt(0), 
-                                                                Integer.parseInt(parseRecord[2]));
+                                                                4);
                         records.add(record);
                         minAddr64 = Math.min(minAddr64, addr64);
                     }

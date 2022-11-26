@@ -71,6 +71,7 @@ public class VMProcess extends UserProcess {
 
 		switch (cause) {
             case Processor.exceptionPageFault:
+                System.out.println("test");
                 pageFaultHandler(Processor.regBadVAddr);
                 break;
             default:

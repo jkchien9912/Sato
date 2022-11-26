@@ -341,16 +341,11 @@ public final class Processor {
 		if (!usingTLB) {
 
 			// page fault if any condition met
-			try {
-				if (translations == null || vpn >= translations.length
-						|| translations[vpn] == null || !translations[vpn].valid) {
-					privilege.stats.numPageFaults++;
-					Lib.debug(dbgProcessor, "\t\tpage fault");
-					throw new MipsException(exceptionPageFault, vaddr);
-				}
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			if (translations == null || vpn >= translations.length
+					|| translations[vpn] == null || !translations[vpn].valid) {
+				privilege.stats.numPageFaults++;
+				Lib.debug(dbgProcessor, "\t\tpage fault");
+				throw new MipsException(exceptionPageFault, vaddr);
 			}
 
 			try {
