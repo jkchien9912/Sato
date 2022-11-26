@@ -77,7 +77,7 @@ public class UserKernel extends ThreadedKernel {
 	 */
 	public void exceptionHandler() {
 		Lib.assertTrue(KThread.currentThread() instanceof UThread);
-
+        System.out.println("Exception handler called in UserKernel");
 		UserProcess process = ((UThread) KThread.currentThread()).process;
 		int cause = Machine.processor().readRegister(Processor.regCause);
 		process.handleException(cause);

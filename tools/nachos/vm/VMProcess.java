@@ -68,7 +68,7 @@ public class VMProcess extends UserProcess {
 	 */
 	public void handleException(int cause) {
 		Processor processor = Machine.processor();
-
+        System.out.println("enter exception handler in VM: " + cause);
 		switch (cause) {
             case Processor.exceptionPageFault:
                 System.out.println("test");
@@ -146,6 +146,10 @@ public class VMProcess extends UserProcess {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
+        // TODO: Yuki: Add TCP with daemon.
+
+        System.out.println("fetch a page");
     }
 
     

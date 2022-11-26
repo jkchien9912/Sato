@@ -117,8 +117,9 @@ public final class Processor {
 				} else {
 					writeMem(record.addr32, record.size, 1);
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
+			} catch (MipsException e) {
+                System.out.println("fuck exception");
+				e.handle();
 			}
 		}
 	}
