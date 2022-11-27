@@ -24,6 +24,17 @@ public class VMProcess extends UserProcess {
         for(int i = 0; i < 6000; i++){
             pageTable[i] = new TranslationEntry(i, null, false, false, false, false);
         }
+        try {
+            this.socket = new Socket("127.0.0.1", 8888);
+            this.remoteOutStream = new PrintStream(socket.getOutputStream());
+            this.remoteInStream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+        } catch (UnknownHostException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 	}
 
 	/**
@@ -71,7 +82,6 @@ public class VMProcess extends UserProcess {
         System.out.println("enter exception handler in VM: " + cause);
 		switch (cause) {
             case Processor.exceptionPageFault:
-                System.out.println("test");
                 pageFaultHandler(Processor.regBadVAddr);
                 break;
             default:
@@ -131,25 +141,14 @@ public class VMProcess extends UserProcess {
     }
 
     public void fetchRemotePage(int count) {
-        Socket socket;
-        PrintStream out;
+        System.out.println("fetch a page");
         try {
-            socket = new Socket("127.0.0.1", 8888);
-            out = new PrintStream(socket.getOutputStream());
-            out.println("4");
-
-            
-        } catch (UnknownHostException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
+            remoteOutStream.println("4");
+            String line = remoteInStream.readUTF();
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
-        // TODO: Yuki: Add TCP with daemon.
-
-        System.out.println("fetch a page");
     }
 
     
@@ -163,4 +162,8 @@ public class VMProcess extends UserProcess {
 
     private static int ratio = Processor.virtualPageSize/Processor.physicalPageSize;
 	private static final char dbgVM = 'v';
+
+    private static Socket socket;
+    private static PrintStream remoteOutStream;
+    private static DataInputStream remoteInStream;
 }

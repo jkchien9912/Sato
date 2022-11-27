@@ -56,32 +56,22 @@ int main() {
     // server loop
     // receive tcp request and reply with corresponding data
     while (true) {
-        int bytes = recv(client, buf, sizeof(buf), 0);
-        if (bytes != 1) continue;
-        int size = buf[0] - '0';
-        char* sendBuf = nullptr;
-        switch (size) {
-            case 1:
-                sendBuf = mem1k;
-                break;
-            case 2:
-                sendBuf = mem2k;
-                break;
-            case 3:
-                sendBuf = mem3k;
-                break;
-            case 4:
-                sendBuf = mem4k;
-                break;
-            case 8:
-                sendBuf = mem8k;
-                break;
-            case 16:
-                sendBuf = mem16k;
-                break;
+        memset(&buf, 0, sizeof(buf));
+        recv(client, buf, sizeof(buf), 0);
+        std::cout<<"received: "<<buf<<std::endl;
+        if (strcmp(buf, "1")) {
+            send(client, mem1k,  1024, 0);
+        } else if (strcmp(buf, "2")) {
+            send(client, mem2k, 2 * 1024, 0);
+        } else if (strcmp(buf, "3")) {
+            send(client, mem3k, 3 * 1024, 0);
+        } else if (strcmp(buf, "4")) {
+            send(client, mem4k, 4 * 1024, 0);
+        } else if (strcmp(buf, "8")) {
+            send(client, mem8k, 8 * 1024, 0);
+        } else if (strcmp(buf, "16")) {
+            send(client, mem16k, 16 * 1024, 0);
         }
-        send(client, sendBuf, sizeof(sendBuf), 0);
-        sendBuf = nullptr;
     }
 
     // deallocation

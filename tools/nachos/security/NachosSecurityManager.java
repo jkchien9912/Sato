@@ -194,7 +194,8 @@ public class NachosSecurityManager extends SecurityManager {
 			if (name.equals("loadLibrary.net") ||
 				name.equals("loadLibrary.extnet"))
 				return;
-			if (name.equals("writeFileDescriptor"))
+			if (name.equals("writeFileDescriptor") ||
+				name.equals("readFileDescriptor"))
 				return;
 		}
 
