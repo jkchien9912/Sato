@@ -82,7 +82,7 @@ public class VMProcess extends UserProcess {
         System.out.println("enter exception handler in VM: " + cause);
 		switch (cause) {
             case Processor.exceptionPageFault:
-                pageFaultHandler(Processor.regBadVAddr);
+                pageFaultHandler(processor.readRegister(Processor.regBadVAddr));
                 break;
             default:
                 super.handleException(cause);
@@ -95,6 +95,8 @@ public class VMProcess extends UserProcess {
     public void pageFaultHandler(int vaddr) {
         pageFaultCounter++;
         
+        int vpn = Processor.vpnFromAddress(vaddr);
+
         // Evict current physical pages to get slots (include remote fetching)
         if(VMKernel.freePhysicalPages.size() < ratio) {
             pageEviction();
@@ -123,9 +125,9 @@ public class VMProcess extends UserProcess {
         fetchRemotePage(ratio);
 
         // Update page table
-        this.pageTable[vaddr].physPage = pages[0];
-        this.pageTable[vaddr].valid = true;
-        lru.add(vaddr);
+        this.pageTable[vpn].physPage = pages[0];
+        this.pageTable[vpn].valid = true;
+        lru.add(vpn);
     }
 
     public void pageEviction() {

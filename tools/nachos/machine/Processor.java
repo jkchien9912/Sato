@@ -66,7 +66,7 @@ public final class Processor {
 		history = new ArrayList<Integer>();
 
 		try {
-			writer = new FileWriter("/users/Yukinari/bench.txt");
+			writer = new FileWriter("/users/jkchien/bench.txt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
