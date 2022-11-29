@@ -65,12 +65,8 @@ public final class Processor {
 		
 		history = new ArrayList<Integer>();
 
-		for(int i = 0; i < 100; i++){
-			history.add(0);
-		}
-
 		try {
-			writer = new FileWriter("/users/jkchien/bench.txt");
+			writer = new FileWriter("/users/Yukinari/bench.txt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -130,17 +126,12 @@ public final class Processor {
 		for (int i = 0; i < pattern.records.size(); ++i) {
 			var record = pattern.records.get(i);
 			try {
-
-				int prev = history.remove(0);
-				pageFaultCount -= prev;
 				history.add(0);
+				if (history.size() > 100) {
+					int prev = history.remove(0);
+					pageFaultCount -= prev;
+				}
 
-				double rate = ((double)pageFaultCount) / 100.0;
-				writer.write(String.valueOf(rate) + "\n");
-				writer.flush();
-
-				System.out.println(" Size: " + history.size() + " PageFaultCOunt: " + pageFaultCount + " Prev: " + prev);
-				System.out.println("History: " + history.toString());
 				if (record.type == 'R') {
 					readMem(record.addr32, record.size);
 				} else {
@@ -149,24 +140,20 @@ public final class Processor {
 			} catch (MipsException e) {
 				System.out.println("fuck exception");
 
-				// if (history.size() <= 100) {
-				// 	history.set(history.size() - 1, 1);
-				// }
-
-				// else {
-				// 	int prev = history.remove(0);
-				// 	pageFaultCount -= prev;
-				// 	history.set(history.size() - 1, 1);
-				// }
-
-				// pageFaultCount++;
-
-				history.set(99, 1);
+				history.set(history.size() - 1, 1);
 				pageFaultCount++;
 				e.handle();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			}
+
+			if (history.size() == 100) {
+				double rate = ((double)pageFaultCount) / history.size();
+				System.out.println(rate);
+				try {
+					writer.write(String.valueOf(rate) + "\n");
+					writer.flush();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
@@ -1329,7 +1316,7 @@ public final class Processor {
 				new Mips(), new Mips() };
 	}
 
-	private static ArrayList<Integer> history;
-	private static int pageFaultCount = 0;
-	private static FileWriter writer;
+	private ArrayList<Integer> history;
+	private int pageFaultCount = 0;
+	private FileWriter writer;
 }
