@@ -1,0 +1,3 @@
+[submodule "mtrace_analysis/YCSB"]
+	path = mtrace_analysis/YCSB
+	url = https://github.com/brianfrankcooper/YCSB.git
