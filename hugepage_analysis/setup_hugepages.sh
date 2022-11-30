@@ -11,5 +11,5 @@ sudo apt-get install -y libhugetlbfs-dev
 # Install tools to support perf
 sudo apt update -y 
 sudo apt install linux-tools-common
-sudo apt install linux-tools-4.15.0-169-generic
-sudo apt install linux-cloud-tools-4.15.0-169-generic
+sudo apt install -y linux-tools-4.15.0-169-generic
+sudo apt install -y linux-cloud-tools-4.15.0-169-generic 
