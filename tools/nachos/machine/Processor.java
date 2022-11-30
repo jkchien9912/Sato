@@ -66,7 +66,7 @@ public final class Processor {
 		history = new ArrayList<Integer>();
 
 		try {
-			writer = new FileWriter("/users/jkchien/bench.txt");
+			writer = new FileWriter(Config.getString("Stat.PageFaultRate"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -138,8 +138,6 @@ public final class Processor {
 					writeMem(record.addr32, record.size, 1);
 				}
 			} catch (MipsException e) {
-				System.out.println("fuck exception");
-
 				history.set(history.size() - 1, 1);
 				pageFaultCount++;
 				e.handle();
@@ -147,7 +145,6 @@ public final class Processor {
 
 			if (history.size() == 100) {
 				double rate = ((double)pageFaultCount) / history.size();
-				System.out.println(rate);
 				try {
 					writer.write(String.valueOf(rate) + "\n");
 					writer.flush();
@@ -156,6 +153,8 @@ public final class Processor {
 				}
 			}
 		}
+
+		System.out.println("End");
 	}
 
 	/**
