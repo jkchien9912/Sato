@@ -3,23 +3,31 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import sys
+import itertools
 
+colors = itertools.cycle(["blue", "green", "red", "orange", "purple"])
+labels = ['16k', '8k', '4k', '2k', '1k']
+plots = []
 
-file = open(sys.argv[1], 'r')
-lines = file.readlines()
+for i in range(len(sys.argv)):
+    if i == 0:
+        continue
+    file = open(sys.argv[i], 'r')
+    lines = file.readlines()
 
-rates = []
-for rate in lines:
-    rates.append(float(rate))
+    rates = []
+    for rate in lines:
+        rates.append(float(rate))
 
-indices = []
-for i in range(len(rates)):
-    indices.append(i)
+    indices = []
+    for i in range(len(rates)):
+        indices.append(i)
 
-x = np.array(indices)
-y = np.array(rates)
-s = [1 for i in range(x.shape[0])]
-plt.scatter(x, y, s=s)
+    x = np.array(indices)
+    y = np.array(rates)
+    s = [1 for i in range(x.shape[0])]
+    plots.append(plt.scatter(x, y, s=s, color=next(colors)))
 plt.ylabel("Page Fault Rate")
 plt.ylim(0, 1)
-plt.savefig(str(sys.argv[1]) + '.jpg')
+plt.legend(tuple(plots), tuple(labels), loc='best')
+plt.savefig('result.jpg')
