@@ -1,0 +1,400 @@
+# started on Wed Nov 30 17:09:29 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 6':
+
+       8796.639812      task-clock (msec)         #    1.000 CPUs utilized          
+                 6      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               190      page-faults               #    0.022 K/sec                  
+    22,384,861,270      cycles                    #    2.545 GHz                    
+    15,381,092,775      instructions              #    0.69  insn per cycle         
+     5,124,516,579      branches                  #  582.554 M/sec                  
+           521,217      branch-misses             #    0.01% of all branches        
+
+       8.797515118 seconds time elapsed
+
+# started on Wed Nov 30 17:09:38 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 7':
+
+       7380.515203      task-clock (msec)         #    1.000 CPUs utilized          
+                12      context-switches          #    0.002 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               191      page-faults               #    0.026 K/sec                  
+    18,189,954,740      cycles                    #    2.465 GHz                    
+    10,757,178,276      instructions              #    0.59  insn per cycle         
+     3,583,409,523      branches                  #  485.523 M/sec                  
+        13,907,702      branch-misses             #    0.39% of all branches        
+
+       7.381332254 seconds time elapsed
+
+# started on Wed Nov 30 17:09:45 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 8':
+
+       5311.663020      task-clock (msec)         #    1.000 CPUs utilized          
+                 3      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               190      page-faults               #    0.036 K/sec                  
+    12,748,537,531      cycles                    #    2.400 GHz                    
+     7,565,688,479      instructions              #    0.59  insn per cycle         
+     2,519,892,418      branches                  #  474.407 M/sec                  
+         4,962,834      branch-misses             #    0.20% of all branches        
+
+       5.312357037 seconds time elapsed
+
+# started on Wed Nov 30 17:09:51 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 9':
+
+       3569.989340      task-clock (msec)         #    1.000 CPUs utilized          
+                 3      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               192      page-faults               #    0.054 K/sec                  
+     8,963,696,168      cycles                    #    2.511 GHz                    
+     5,337,050,480      instructions              #    0.60  insn per cycle         
+     1,777,283,265      branches                  #  497.840 M/sec                  
+         1,794,028      branch-misses             #    0.10% of all branches        
+
+       3.570530378 seconds time elapsed
+
+# started on Wed Nov 30 17:09:54 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 10':
+
+       2661.299979      task-clock (msec)         #    1.000 CPUs utilized          
+                15      context-switches          #    0.006 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               195      page-faults               #    0.073 K/sec                  
+     6,321,777,380      cycles                    #    2.375 GHz                    
+     3,771,749,085      instructions              #    0.60  insn per cycle         
+     1,255,631,119      branches                  #  471.811 M/sec                  
+           672,126      branch-misses             #    0.05% of all branches        
+
+       2.662104574 seconds time elapsed
+
+# started on Wed Nov 30 17:09:57 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 11':
+
+       1993.407178      task-clock (msec)         #    1.000 CPUs utilized          
+                 3      context-switches          #    0.002 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               201      page-faults               #    0.101 K/sec                  
+     4,522,307,548      cycles                    #    2.269 GHz                    
+     2,668,485,927      instructions              #    0.59  insn per cycle         
+       887,977,081      branches                  #  445.457 M/sec                  
+           271,005      branch-misses             #    0.03% of all branches        
+
+       1.994027503 seconds time elapsed
+
+# started on Wed Nov 30 17:09:59 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 12':
+
+       1575.634911      task-clock (msec)         #    1.000 CPUs utilized          
+                 3      context-switches          #    0.002 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               195      page-faults               #    0.124 K/sec                  
+     3,160,545,295      cycles                    #    2.006 GHz                    
+     1,889,904,344      instructions              #    0.60  insn per cycle         
+       628,461,692      branches                  #  398.863 M/sec                  
+           127,994      branch-misses             #    0.02% of all branches        
+
+       1.576282326 seconds time elapsed
+
+# started on Wed Nov 30 17:10:01 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 13':
+
+       1087.623317      task-clock (msec)         #    0.999 CPUs utilized          
+                 1      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               190      page-faults               #    0.175 K/sec                  
+     2,236,978,378      cycles                    #    2.057 GHz                    
+     1,339,823,519      instructions              #    0.60  insn per cycle         
+       445,100,226      branches                  #  409.241 M/sec                  
+            74,752      branch-misses             #    0.02% of all branches        
+
+       1.088226856 seconds time elapsed
+
+# started on Wed Nov 30 17:10:02 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 14':
+
+        714.598636      task-clock (msec)         #    0.999 CPUs utilized          
+                 1      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               192      page-faults               #    0.269 K/sec                  
+     1,583,916,923      cycles                    #    2.217 GHz                    
+       951,719,198      instructions              #    0.60  insn per cycle         
+       315,613,544      branches                  #  441.665 M/sec                  
+            54,922      branch-misses             #    0.02% of all branches        
+
+       0.715213509 seconds time elapsed
+
+# started on Wed Nov 30 17:10:03 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 15':
+
+        620.595786      task-clock (msec)         #    0.999 CPUs utilized          
+                 2      context-switches          #    0.003 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               193      page-faults               #    0.311 K/sec                  
+     1,123,085,649      cycles                    #    1.810 GHz                    
+       679,015,617      instructions              #    0.60  insn per cycle         
+       224,377,861      branches                  #  361.552 M/sec                  
+            48,418      branch-misses             #    0.02% of all branches        
+
+       0.621236507 seconds time elapsed
+
+# started on Wed Nov 30 17:10:04 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 16':
+
+        402.814846      task-clock (msec)         #    0.998 CPUs utilized          
+                 0      context-switches          #    0.000 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               194      page-faults               #    0.482 K/sec                  
+       802,205,141      cycles                    #    1.991 GHz                    
+       489,138,328      instructions              #    0.61  insn per cycle         
+       160,443,424      branches                  #  398.306 M/sec                  
+            44,608      branch-misses             #    0.03% of all branches        
+
+       0.403424745 seconds time elapsed
+
+# started on Wed Nov 30 17:10:05 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 17':
+
+        428.656621      task-clock (msec)         #    0.999 CPUs utilized          
+                 0      context-switches          #    0.000 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               192      page-faults               #    0.448 K/sec                  
+       574,979,310      cycles                    #    1.341 GHz                    
+       360,419,149      instructions              #    0.63  insn per cycle         
+       116,154,587      branches                  #  270.974 M/sec                  
+            44,149      branch-misses             #    0.04% of all branches        
+
+       0.429241299 seconds time elapsed
+
+# started on Wed Nov 30 17:10:05 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 18':
+
+        270.132536      task-clock (msec)         #    0.998 CPUs utilized          
+                 1      context-switches          #    0.004 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               194      page-faults               #    0.718 K/sec                  
+       422,482,699      cycles                    #    1.564 GHz                    
+       281,529,087      instructions              #    0.67  insn per cycle         
+        87,123,643      branches                  #  322.522 M/sec                  
+            43,605      branch-misses             #    0.05% of all branches        
+
+       0.270731564 seconds time elapsed
+
+# started on Wed Nov 30 17:10:06 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 19':
+
+        229.909457      task-clock (msec)         #    0.997 CPUs utilized          
+                 0      context-switches          #    0.000 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               196      page-faults               #    0.853 K/sec                  
+       330,370,030      cycles                    #    1.437 GHz                    
+       250,117,993      instructions              #    0.76  insn per cycle         
+        71,144,577      branches                  #  309.446 M/sec                  
+            43,490      branch-misses             #    0.06% of all branches        
+
+       0.230513126 seconds time elapsed
+
+# started on Wed Nov 30 17:10:06 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 20':
+
+        162.414096      task-clock (msec)         #    0.996 CPUs utilized          
+                 0      context-switches          #    0.000 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               203      page-faults               #    0.001 M/sec                  
+       298,815,563      cycles                    #    1.840 GHz                    
+       275,263,077      instructions              #    0.92  insn per cycle         
+        68,519,212      branches                  #  421.880 M/sec                  
+            42,988      branch-misses             #    0.06% of all branches        
+
+       0.163081881 seconds time elapsed
+
+# started on Wed Nov 30 17:10:07 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 21':
+
+        186.730796      task-clock (msec)         #    0.997 CPUs utilized          
+                 0      context-switches          #    0.000 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               212      page-faults               #    0.001 M/sec                  
+       324,507,715      cycles                    #    1.738 GHz                    
+       388,749,758      instructions              #    1.20  insn per cycle         
+        84,298,297      branches                  #  451.443 M/sec                  
+            43,874      branch-misses             #    0.05% of all branches        
+
+       0.187350737 seconds time elapsed
+
+# started on Wed Nov 30 17:10:07 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 22':
+
+        292.029689      task-clock (msec)         #    0.998 CPUs utilized          
+                 1      context-switches          #    0.003 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               237      page-faults               #    0.812 K/sec                  
+       425,020,249      cycles                    #    1.455 GHz                    
+       641,187,069      instructions              #    1.51  insn per cycle         
+       124,341,814      branches                  #  425.785 M/sec                  
+            44,807      branch-misses             #    0.04% of all branches        
+
+       0.292661491 seconds time elapsed
+
+# started on Wed Nov 30 17:10:08 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 23':
+
+        439.630603      task-clock (msec)         #    0.998 CPUs utilized          
+                 2      context-switches          #    0.005 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               285      page-faults               #    0.648 K/sec                  
+       755,961,325      cycles                    #    1.720 GHz                    
+     1,221,280,041      instructions              #    1.62  insn per cycle         
+       229,487,337      branches                  #  522.000 M/sec                  
+            47,666      branch-misses             #    0.02% of all branches        
+
+       0.440303334 seconds time elapsed
+
+# started on Wed Nov 30 17:10:08 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 24':
+
+        800.222294      task-clock (msec)         #    0.999 CPUs utilized          
+                 0      context-switches          #    0.000 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               381      page-faults               #    0.476 K/sec                  
+     1,498,793,874      cycles                    #    1.873 GHz                    
+     2,432,163,498      instructions              #    1.62  insn per cycle         
+       456,685,849      branches                  #  570.699 M/sec                  
+            50,794      branch-misses             #    0.01% of all branches        
+
+       0.800814314 seconds time elapsed
+
+# started on Wed Nov 30 17:10:09 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 25':
+
+       1361.649074      task-clock (msec)         #    1.000 CPUs utilized          
+                 1      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               574      page-faults               #    0.422 K/sec                  
+     3,000,268,828      cycles                    #    2.203 GHz                    
+     4,853,595,879      instructions              #    1.62  insn per cycle         
+       911,006,447      branches                  #  669.046 M/sec                  
+            57,501      branch-misses             #    0.01% of all branches        
+
+       1.362275881 seconds time elapsed
+
+# started on Wed Nov 30 17:10:11 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 26':
+
+       2539.514817      task-clock (msec)         #    1.000 CPUs utilized          
+                 3      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               958      page-faults               #    0.377 K/sec                  
+     6,018,980,401      cycles                    #    2.370 GHz                    
+     9,695,691,412      instructions              #    1.61  insn per cycle         
+     1,819,343,793      branches                  #  716.414 M/sec                  
+            74,104      branch-misses             #    0.00% of all branches        
+
+       2.540178540 seconds time elapsed
+
+# started on Wed Nov 30 17:10:13 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 27':
+
+       4733.407769      task-clock (msec)         #    1.000 CPUs utilized          
+                 6      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+             1,724      page-faults               #    0.364 K/sec                  
+    11,989,990,719      cycles                    #    2.533 GHz                    
+    19,380,417,237      instructions              #    1.62  insn per cycle         
+     3,636,267,631      branches                  #  768.213 M/sec                  
+           101,904      branch-misses             #    0.00% of all branches        
+
+       4.734209341 seconds time elapsed
+
+# started on Wed Nov 30 17:10:18 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 28':
+
+       9865.750567      task-clock (msec)         #    1.000 CPUs utilized          
+                 9      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+             3,264      page-faults               #    0.331 K/sec                  
+    24,021,881,452      cycles                    #    2.435 GHz                    
+    38,754,675,661      instructions              #    1.61  insn per cycle         
+     7,271,646,234      branches                  #  737.060 M/sec                  
+           157,055      branch-misses             #    0.00% of all branches        
+
+       9.866629636 seconds time elapsed
+
+# started on Wed Nov 30 17:10:28 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 29':
+
+      18745.555338      task-clock (msec)         #    1.000 CPUs utilized          
+                19      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+             6,332      page-faults               #    0.338 K/sec                  
+    47,905,785,615      cycles                    #    2.556 GHz                    
+    77,497,182,273      instructions              #    1.62  insn per cycle         
+    14,540,589,758      branches                  #  775.682 M/sec                  
+           269,425      branch-misses             #    0.00% of all branches        
+
+      18.746746491 seconds time elapsed
+
+# started on Wed Nov 30 17:10:47 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 30':
+
+      37434.361257      task-clock (msec)         #    1.000 CPUs utilized          
+                34      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+            12,478      page-faults               #    0.333 K/sec                  
+    95,813,855,707      cycles                    #    2.560 GHz                    
+   154,983,393,574      instructions              #    1.62  insn per cycle         
+    29,078,845,330      branches                  #  776.796 M/sec                  
+           517,824      branch-misses             #    0.00% of all branches        
+
+      37.436128161 seconds time elapsed
+

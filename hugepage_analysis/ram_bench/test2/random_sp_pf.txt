@@ -1,0 +1,400 @@
+# started on Wed Nov 30 17:19:37 2022
+
+
+ Performance counter stats for './list_one_traversal random 6':
+
+      10623.429115      task-clock (msec)         #    1.000 CPUs utilized          
+                48      context-switches          #    0.005 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               122      page-faults               #    0.011 K/sec                  
+    26,374,605,282      cycles                    #    2.483 GHz                    
+    15,377,846,111      instructions              #    0.58  insn per cycle         
+     5,123,771,333      branches                  #  482.309 M/sec                  
+        39,151,406      branch-misses             #    0.76% of all branches        
+
+      10.624843739 seconds time elapsed
+
+# started on Wed Nov 30 17:19:48 2022
+
+
+ Performance counter stats for './list_one_traversal random 7':
+
+       7302.373144      task-clock (msec)         #    1.000 CPUs utilized          
+                 5      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               124      page-faults               #    0.017 K/sec                  
+    18,208,735,730      cycles                    #    2.494 GHz                    
+    10,750,249,412      instructions              #    0.59  insn per cycle         
+     3,581,726,892      branches                  #  490.488 M/sec                  
+        13,881,705      branch-misses             #    0.39% of all branches        
+
+       7.303044153 seconds time elapsed
+
+# started on Wed Nov 30 17:19:55 2022
+
+
+ Performance counter stats for './list_one_traversal random 8':
+
+       5170.034702      task-clock (msec)         #    1.000 CPUs utilized          
+                 3      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               122      page-faults               #    0.024 K/sec                  
+    12,752,234,763      cycles                    #    2.467 GHz                    
+     7,558,326,120      instructions              #    0.59  insn per cycle         
+     2,518,112,811      branches                  #  487.059 M/sec                  
+         4,938,065      branch-misses             #    0.20% of all branches        
+
+       5.170683154 seconds time elapsed
+
+# started on Wed Nov 30 17:20:01 2022
+
+
+ Performance counter stats for './list_one_traversal random 9':
+
+       3716.759481      task-clock (msec)         #    1.000 CPUs utilized          
+                 3      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               123      page-faults               #    0.033 K/sec                  
+     8,964,126,792      cycles                    #    2.412 GHz                    
+     5,330,302,169      instructions              #    0.59  insn per cycle         
+     1,775,641,834      branches                  #  477.739 M/sec                  
+         1,768,993      branch-misses             #    0.10% of all branches        
+
+       3.717376748 seconds time elapsed
+
+# started on Wed Nov 30 17:20:05 2022
+
+
+ Performance counter stats for './list_one_traversal random 10':
+
+       2670.772685      task-clock (msec)         #    1.000 CPUs utilized          
+                 4      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               126      page-faults               #    0.047 K/sec                  
+     6,319,939,579      cycles                    #    2.366 GHz                    
+     3,764,880,977      instructions              #    0.60  insn per cycle         
+     1,253,939,106      branches                  #  469.504 M/sec                  
+           647,911      branch-misses             #    0.05% of all branches        
+
+       2.671351783 seconds time elapsed
+
+# started on Wed Nov 30 17:20:07 2022
+
+
+ Performance counter stats for './list_one_traversal random 11':
+
+       1982.037708      task-clock (msec)         #    1.000 CPUs utilized          
+                 2      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               134      page-faults               #    0.068 K/sec                  
+     4,533,865,903      cycles                    #    2.287 GHz                    
+     2,662,011,010      instructions              #    0.59  insn per cycle         
+       886,361,778      branches                  #  447.197 M/sec                  
+           246,745      branch-misses             #    0.03% of all branches        
+
+       1.982583595 seconds time elapsed
+
+# started on Wed Nov 30 17:20:10 2022
+
+
+ Performance counter stats for './list_one_traversal random 12':
+
+       1937.432227      task-clock (msec)         #    1.000 CPUs utilized          
+                 3      context-switches          #    0.002 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               144      page-faults               #    0.074 K/sec                  
+     4,425,215,045      cycles                    #    2.284 GHz                    
+     1,884,909,641      instructions              #    0.43  insn per cycle         
+       627,191,136      branches                  #  323.723 M/sec                  
+           104,191      branch-misses             #    0.02% of all branches        
+
+       1.938012406 seconds time elapsed
+
+# started on Wed Nov 30 17:20:12 2022
+
+
+ Performance counter stats for './list_one_traversal random 13':
+
+       1398.919619      task-clock (msec)         #    1.000 CPUs utilized          
+                 1      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               169      page-faults               #    0.121 K/sec                  
+     3,485,731,800      cycles                    #    2.492 GHz                    
+     1,336,212,758      instructions              #    0.38  insn per cycle         
+       444,084,311      branches                  #  317.448 M/sec                  
+            52,667      branch-misses             #    0.01% of all branches        
+
+       1.399433601 seconds time elapsed
+
+# started on Wed Nov 30 17:20:13 2022
+
+
+ Performance counter stats for './list_one_traversal random 14':
+
+       1505.548319      task-clock (msec)         #    1.000 CPUs utilized          
+                 7      context-switches          #    0.005 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               220      page-faults               #    0.146 K/sec                  
+     3,629,141,019      cycles                    #    2.411 GHz                    
+       951,912,445      instructions              #    0.26  insn per cycle         
+       315,377,931      branches                  #  209.477 M/sec                  
+            35,638      branch-misses             #    0.01% of all branches        
+
+       1.506165267 seconds time elapsed
+
+# started on Wed Nov 30 17:20:15 2022
+
+
+ Performance counter stats for './list_one_traversal random 15':
+
+       1772.822078      task-clock (msec)         #    1.000 CPUs utilized          
+                 2      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               316      page-faults               #    0.178 K/sec                  
+     4,311,773,324      cycles                    #    2.432 GHz                    
+       685,693,683      instructions              #    0.16  insn per cycle         
+       225,429,033      branches                  #  127.158 M/sec                  
+            31,693      branch-misses             #    0.01% of all branches        
+
+       1.773381067 seconds time elapsed
+
+# started on Wed Nov 30 17:20:17 2022
+
+
+ Performance counter stats for './list_one_traversal random 16':
+
+       1634.455619      task-clock (msec)         #    1.000 CPUs utilized          
+                 2      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               508      page-faults               #    0.311 K/sec                  
+     3,674,558,559      cycles                    #    2.248 GHz                    
+       506,791,180      instructions              #    0.14  insn per cycle         
+       163,485,980      branches                  #  100.025 M/sec                  
+            31,092      branch-misses             #    0.02% of all branches        
+
+       1.634989934 seconds time elapsed
+
+# started on Wed Nov 30 17:20:19 2022
+
+
+ Performance counter stats for './list_one_traversal random 17':
+
+       1175.294122      task-clock (msec)         #    1.000 CPUs utilized          
+                 2      context-switches          #    0.002 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+               891      page-faults               #    0.758 K/sec                  
+     2,900,795,283      cycles                    #    2.468 GHz                    
+       399,438,132      instructions              #    0.14  insn per cycle         
+       123,106,204      branches                  #  104.745 M/sec                  
+            34,260      branch-misses             #    0.03% of all branches        
+
+       1.175839936 seconds time elapsed
+
+# started on Wed Nov 30 17:20:20 2022
+
+
+ Performance counter stats for './list_one_traversal random 18':
+
+       1045.168717      task-clock (msec)         #    0.999 CPUs utilized          
+                 2      context-switches          #    0.002 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+             1,660      page-faults               #    0.002 M/sec                  
+     2,118,656,080      cycles                    #    2.027 GHz                    
+       364,883,055      instructions              #    0.17  insn per cycle         
+       102,242,960      branches                  #   97.824 M/sec                  
+            46,239      branch-misses             #    0.05% of all branches        
+
+       1.045694736 seconds time elapsed
+
+# started on Wed Nov 30 17:20:21 2022
+
+
+ Performance counter stats for './list_one_traversal random 19':
+
+        969.983881      task-clock (msec)         #    0.999 CPUs utilized          
+                 1      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+             3,196      page-faults               #    0.003 M/sec                  
+     1,933,818,159      cycles                    #    1.994 GHz                    
+       422,307,212      instructions              #    0.22  insn per cycle         
+       102,700,290      branches                  #  105.878 M/sec                  
+            66,437      branch-misses             #    0.06% of all branches        
+
+       0.970518883 seconds time elapsed
+
+# started on Wed Nov 30 17:20:23 2022
+
+
+ Performance counter stats for './list_one_traversal random 20':
+
+       1341.810772      task-clock (msec)         #    1.000 CPUs utilized          
+                 2      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+             6,269      page-faults               #    0.005 M/sec                  
+     3,197,180,936      cycles                    #    2.383 GHz                    
+       626,577,214      instructions              #    0.20  insn per cycle         
+       133,350,599      branches                  #   99.381 M/sec                  
+           108,446      branch-misses             #    0.08% of all branches        
+
+       1.342362821 seconds time elapsed
+
+# started on Wed Nov 30 17:20:24 2022
+
+
+ Performance counter stats for './list_one_traversal random 21':
+
+       1567.868512      task-clock (msec)         #    1.000 CPUs utilized          
+                 4      context-switches          #    0.003 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+            12,410      page-faults               #    0.008 M/sec                  
+     3,545,829,285      cycles                    #    2.262 GHz                    
+     1,096,038,688      instructions              #    0.31  insn per cycle         
+       214,862,582      branches                  #  137.041 M/sec                  
+           196,571      branch-misses             #    0.09% of all branches        
+
+       1.568529568 seconds time elapsed
+
+# started on Wed Nov 30 17:20:26 2022
+
+
+ Performance counter stats for './list_one_traversal random 22':
+
+       1467.094561      task-clock (msec)         #    1.000 CPUs utilized          
+                 2      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+            24,698      page-faults               #    0.017 M/sec                  
+     3,630,062,822      cycles                    #    2.474 GHz                    
+     2,060,385,708      instructions              #    0.57  insn per cycle         
+       386,855,182      branches                  #  263.688 M/sec                  
+           366,391      branch-misses             #    0.09% of all branches        
+
+       1.467670080 seconds time elapsed
+
+# started on Wed Nov 30 17:20:28 2022
+
+
+ Performance counter stats for './list_one_traversal random 23':
+
+       2497.201406      task-clock (msec)         #    1.000 CPUs utilized          
+                 2      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+            49,278      page-faults               #    0.020 M/sec                  
+     5,829,840,107      cycles                    #    2.335 GHz                    
+     4,067,660,611      instructions              #    0.70  insn per cycle         
+       756,686,741      branches                  #  303.014 M/sec                  
+           740,849      branch-misses             #    0.10% of all branches        
+
+       2.497789447 seconds time elapsed
+
+# started on Wed Nov 30 17:20:30 2022
+
+
+ Performance counter stats for './list_one_traversal random 24':
+
+       5150.510114      task-clock (msec)         #    1.000 CPUs utilized          
+                 7      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+            98,428      page-faults               #    0.019 M/sec                  
+    12,664,799,690      cycles                    #    2.459 GHz                    
+     8,130,018,696      instructions              #    0.64  insn per cycle         
+     1,511,828,457      branches                  #  293.530 M/sec                  
+         1,409,074      branch-misses             #    0.09% of all branches        
+
+       5.151204076 seconds time elapsed
+
+# started on Wed Nov 30 17:20:36 2022
+
+
+ Performance counter stats for './list_one_traversal random 25':
+
+      10809.078954      task-clock (msec)         #    1.000 CPUs utilized          
+                12      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+           196,732      page-faults               #    0.018 M/sec                  
+    26,571,410,292      cycles                    #    2.458 GHz                    
+    16,258,467,163      instructions              #    0.61  insn per cycle         
+     3,023,988,553      branches                  #  279.764 M/sec                  
+         2,817,848      branch-misses             #    0.09% of all branches        
+
+      10.809994743 seconds time elapsed
+
+# started on Wed Nov 30 17:20:47 2022
+
+
+ Performance counter stats for './list_one_traversal random 26':
+
+      22058.139358      task-clock (msec)         #    1.000 CPUs utilized          
+                13      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+           393,339      page-faults               #    0.018 M/sec                  
+    55,399,049,540      cycles                    #    2.512 GHz                    
+    32,509,867,897      instructions              #    0.59  insn per cycle         
+     6,045,927,150      branches                  #  274.091 M/sec                  
+         5,538,156      branch-misses             #    0.09% of all branches        
+
+      22.059220849 seconds time elapsed
+
+# started on Wed Nov 30 17:21:09 2022
+
+
+ Performance counter stats for './list_one_traversal random 27':
+
+      45987.492493      task-clock (msec)         #    1.000 CPUs utilized          
+                26      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+           786,557      page-faults               #    0.017 M/sec                  
+   116,966,093,646      cycles                    #    2.543 GHz                    
+    65,050,049,556      instructions              #    0.56  insn per cycle         
+    12,100,549,756      branches                  #  263.127 M/sec                  
+        11,026,667      branch-misses             #    0.09% of all branches        
+
+      45.989115524 seconds time elapsed
+
+# started on Wed Nov 30 17:21:55 2022
+
+
+ Performance counter stats for './list_one_traversal random 28':
+
+      98529.436788      task-clock (msec)         #    1.000 CPUs utilized          
+               126      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+         1,572,987      page-faults               #    0.016 M/sec                  
+   251,430,633,544      cycles                    #    2.552 GHz                    
+   130,065,196,073      instructions              #    0.52  insn per cycle         
+    24,181,422,145      branches                  #  245.423 M/sec                  
+        22,382,562      branch-misses             #    0.09% of all branches        
+
+      98.534736678 seconds time elapsed
+
+# started on Wed Nov 30 17:23:34 2022
+
+
+ Performance counter stats for './list_one_traversal random 29':
+
+     218024.617247      task-clock (msec)         #    1.000 CPUs utilized          
+               367      context-switches          #    0.002 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+         3,145,851      page-faults               #    0.014 M/sec                  
+   556,836,448,759      cycles                    #    2.554 GHz                    
+   260,150,523,886      instructions              #    0.47  insn per cycle         
+    48,388,080,974      branches                  #  221.939 M/sec                  
+        43,412,463      branch-misses             #    0.09% of all branches        
+
+     218.036953677 seconds time elapsed
+
+# started on Wed Nov 30 17:27:12 2022
+
+
+ Performance counter stats for './list_one_traversal random 30':
+
+     474974.506980      task-clock (msec)         #    1.000 CPUs utilized          
+               321      context-switches          #    0.001 K/sec                  
+                 2      cpu-migrations            #    0.000 K/sec                  
+         6,291,579      page-faults               #    0.013 M/sec                  
+ 1,212,551,977,338      cycles                    #    2.553 GHz                    
+   520,545,691,811      instructions              #    0.43  insn per cycle         
+    96,845,760,662      branches                  #  203.897 M/sec                  
+        88,326,319      branch-misses             #    0.09% of all branches        
+
+     474.989268489 seconds time elapsed
+
