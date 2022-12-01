@@ -6,6 +6,7 @@ import nachos.userprog.*;
 import nachos.vm.*;
 
 import java.io.EOFException;
+import java.util.ArrayList;
 
 /**
  * Encapsulates the state of a user process that is not contained in its user
@@ -83,6 +84,7 @@ public class UserProcess {
 	 */
 	public void restoreState() {
 		Machine.processor().setPageTable(pageTable);
+		Machine.processor().setLRUList(lruList);
 	}
 
 	/**
@@ -485,6 +487,7 @@ public class UserProcess {
 
 	/** This process's page table. */
 	protected TranslationEntry[] pageTable;
+	protected ArrayList<Integer> lruList;
 
 	/** The number of contiguous pages occupied by the program. */
 	protected int numPages;

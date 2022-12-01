@@ -229,6 +229,19 @@ public final class Processor {
 		this.translations = pageTable;
 	}
 
+
+	public void setLRUList(ArrayList<Integer> lruList) {
+		this.LRUList = lruList;
+	}
+
+	public void updateLRUList(int vpn) {
+		int pos = this.LRUList.indexOf(vpn);
+		if (pos > -1) {
+			this.LRUList.remove(pos);	
+		}
+		this.LRUList.add(vpn);
+	}
+
 	/**
 	 * Return the number of entries in this processor's TLB.
 	 * 
@@ -373,7 +386,6 @@ public final class Processor {
 		// if not using a TLB, then the vpn is an index into the table (modified for
 		// Sato)
 		if (!usingTLB) {
-
 			// page fault if any condition met
 			if (translations == null || vpn >= translations.length
 					|| translations[vpn] == null || !translations[vpn].valid) {
@@ -385,13 +397,12 @@ public final class Processor {
 			try {
 				entry = translations[vpn];
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				// Something must be wrong if we are here
 				e.printStackTrace();
 			}
-		}
-
-		// else, look through all TLB entries for matching vpn (not modified for Sato)
-		else {
+		} else {
+			// else, look through all TLB entries for matching vpn (not modified for Sato)
+			// we wont come here since we are not supporting TLB in Sato (for now)
 			for (int i = 0; i < tlbSize; i++) {
 				if (translations[i].valid && translations[i].vpn == vpn) {
 					entry = translations[i];
@@ -426,6 +437,7 @@ public final class Processor {
 
 		// set used and dirty bits as appropriate
 		entry.used = true;
+		updateLRUList(vpn);
 		if (writing)
 			entry.dirty = true;
 
@@ -638,12 +650,14 @@ public final class Processor {
 	 */
 	private TranslationEntry[] translations;
 
+	private ArrayList<Integer> LRUList;
+
 	/** Size of a physical/remote page, in bytes. */
 	public static final int pageSize = 0x400;
 	public static final int physicalPageSize = 0x400;
 
 	/** Size of a virtual page, in bytes. */
-	public static final int virtualPageSize = 0x1000;
+	public static final int virtualPageSize = 0x4000;
 
 	/** Number of pages in a 32-bit address space. */
 	public static final int maxPages = (int) (0x100000000L / physicalPageSize);

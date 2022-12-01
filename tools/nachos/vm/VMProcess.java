@@ -24,6 +24,8 @@ public class VMProcess extends UserProcess {
         for(int i = 0; i < 6000; i++){
             pageTable[i] = new TranslationEntry(i, null, false, false, false, false);
         }
+        this.lruList = new ArrayList<Integer>();
+
         try {
             this.socket = new Socket("127.0.0.1", 8888);
             this.remoteOutStream = new PrintStream(socket.getOutputStream());
@@ -98,40 +100,41 @@ public class VMProcess extends UserProcess {
         int vpn = Processor.vpnFromAddress(vaddr);
 
         // Evict current physical pages to get slots (include remote fetching)
-        if(VMKernel.freePhysicalPages.size() < ratio) {
+        if(VMKernel.freePhysicalPages.size() < numPhysPages) {
             pageEviction();
         }
 
         // Get new physical pages (this will actual drain physical page for other processes)
         // Modify if benchmark needs to run multiple process. keep it the same for now.
-        PhysPage[] pages = new PhysPage[ratio];
-
-        for(int i = 0; i < ratio; i++){
+        PhysPage[] pages = new PhysPage[numPhysPages];
+        for(int i = 0; i < numPhysPages; i++){
             int ppn = VMKernel.freePhysicalPages.remove(0);
-
             // TODO: try reusing the same phys page entries if it can reduce overheads
             pages[i] = new PhysPage(ppn);
         }
         
-        for(int i = 0; i < ratio; i++){
+        // Each entry maintains the head
+        for(int i = 0; i < numPhysPages; i++){
             pages[i].head = pages[0];
 
-            if(i < ratio - 1) {
+            if(i < numPhysPages - 1) {
                 pages[i].next = pages[i + 1];
             }
         }
 
         // just a dummy benchmarking function
-        fetchRemotePage(ratio);
+        fetchRemotePage(numPhysPages);
 
         // Update page table
+        // for this virtual page it points to the head of the physical page list
         this.pageTable[vpn].physPage = pages[0];
         this.pageTable[vpn].valid = true;
-        lru.add(vpn);
+        Machine.processor().updateLRUList(vpn);
     }
 
     public void pageEviction() {
-        int target = this.lru.remove(0);
+        // Remove the first one from the LRU list
+        int target = this.lruList.remove(0);
         this.pageTable[target].valid = false;
         PhysPage cur = this.pageTable[target].physPage;
         while(cur != null){
@@ -160,9 +163,11 @@ public class VMProcess extends UserProcess {
     private static final int virtualPageSize = Processor.virtualPageSize;
     private static int pageFaultCounter = 0;
 	private static final char dbgProcess = 'a';
-    public ArrayList<Integer> lru = new ArrayList<Integer>();
 
-    private static int ratio = Processor.virtualPageSize/Processor.physicalPageSize;
+    // The number of physical pages to bring in for this page faults
+    // The size of each physical page is fixed to 1K bytes
+    // The virtual page size will be fixed but dynamic as the goal of this project
+    private static int numPhysPages = Processor.virtualPageSize/Processor.physicalPageSize;
 	private static final char dbgVM = 'v';
 
     private static Socket socket;
