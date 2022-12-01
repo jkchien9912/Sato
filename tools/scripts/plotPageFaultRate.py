@@ -29,5 +29,9 @@ for i in range(len(sys.argv)):
     plots.append(plt.scatter(x, y, s=s, color=next(colors)))
 plt.ylabel("Page Fault Rate")
 plt.ylim(0, 1)
-plt.legend(tuple(plots), tuple(labels), loc='best')
+plt.xticks([])
+lgnd = plt.legend(tuple(plots), tuple(labels), loc='best', title = "page size")
+for i in range(len(labels)):
+    lgnd.legendHandles[i].set_sizes([10])
+    
 plt.savefig('result.jpg')
