@@ -242,6 +242,21 @@ public final class Processor {
 		this.LRUList.add(vpn);
 	}
 
+	// TODO: The core algorithm for Sato
+	// return the number of logical pages match to a single virtual page
+	public int updatePageSize() {
+		double rate = (double)pageFaultCount / 100.0;
+		int newVirtualPageSize = virtualPageSize;
+		// TODO: check network conditions
+		if (rate >= PAGE_FAULT_THRESHOLD) {
+			newVirtualPageSize++;
+		} else {
+			newVirtualPageSize--;
+		}
+		virtualPageSize = newVirtualPageSize;
+		return virtualPageSize / physicalPageSize;
+	}
+
 	/**
 	 * Return the number of entries in this processor's TLB.
 	 * 
@@ -657,7 +672,9 @@ public final class Processor {
 	public static final int physicalPageSize = 0x400;
 
 	/** Size of a virtual page, in bytes. */
-	public static final int virtualPageSize = 0x4000;
+	public static int virtualPageSize = 0x1000;
+
+	public static final double PAGE_FAULT_THRESHOLD = 0.5;
 
 	/** Number of pages in a 32-bit address space. */
 	public static final int maxPages = (int) (0x100000000L / physicalPageSize);

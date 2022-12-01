@@ -98,7 +98,7 @@ public class VMProcess extends UserProcess {
         pageFaultCounter++;
         
         int vpn = Processor.vpnFromAddress(vaddr);
-
+        numPhysPages = Machine.processor().updatePageSize();
         // Evict current physical pages to get slots (include remote fetching)
         if(VMKernel.freePhysicalPages.size() < numPhysPages) {
             pageEviction();
@@ -127,9 +127,12 @@ public class VMProcess extends UserProcess {
 
         // Update page table
         // for this virtual page it points to the head of the physical page list
-        this.pageTable[vpn].physPage = pages[0];
-        this.pageTable[vpn].valid = true;
-        Machine.processor().updateLRUList(vpn);
+        for (int i = 0; i < numPhysPages; i += 4) {
+            this.pageTable[vpn].physPage = pages[i];
+            this.pageTable[vpn].valid = true;
+            Machine.processor().updateLRUList(vpn);
+            vpn++;
+        }
     }
 
     public void pageEviction() {
@@ -167,7 +170,7 @@ public class VMProcess extends UserProcess {
     // The number of physical pages to bring in for this page faults
     // The size of each physical page is fixed to 1K bytes
     // The virtual page size will be fixed but dynamic as the goal of this project
-    private static int numPhysPages = Processor.virtualPageSize/Processor.physicalPageSize;
+    private int numPhysPages = Processor.virtualPageSize/Processor.physicalPageSize;
 	private static final char dbgVM = 'v';
 
     private static Socket socket;
