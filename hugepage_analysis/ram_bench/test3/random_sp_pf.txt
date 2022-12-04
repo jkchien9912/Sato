@@ -1,0 +1,338 @@
+# started on Sun Dec  4 12:59:15 2022
+
+
+ Performance counter stats for './list_one_traversal random 6':
+
+               125      faults                                                      
+     7,704,148,769      dTLB-loads                                                  
+        39,075,353      dTLB-load-misses          #    0.51% of all dTLB cache hits 
+           160,302      cache-misses              #  100.000 % of all cache refs    
+           160,302      cache-references                                            
+
+      10.503103223 seconds time elapsed
+
+# started on Sun Dec  4 12:59:26 2022
+
+
+ Performance counter stats for './list_one_traversal random 7':
+
+               124      faults                                                      
+     5,378,736,075      dTLB-loads                                                  
+        13,820,500      dTLB-load-misses          #    0.26% of all dTLB cache hits 
+           148,231      cache-misses              #  100.000 % of all cache refs    
+           148,231      cache-references                                            
+
+       7.147781815 seconds time elapsed
+
+# started on Sun Dec  4 12:59:33 2022
+
+
+ Performance counter stats for './list_one_traversal random 8':
+
+               125      faults                                                      
+     3,779,282,505      dTLB-loads                                                  
+         4,892,487      dTLB-load-misses          #    0.13% of all dTLB cache hits 
+           136,451      cache-misses              #  100.000 % of all cache refs    
+           136,451      cache-references                                            
+
+       5.175967322 seconds time elapsed
+
+# started on Sun Dec  4 12:59:39 2022
+
+
+ Performance counter stats for './list_one_traversal random 9':
+
+               124      faults                                                      
+     2,664,069,337      dTLB-loads                                                  
+         1,733,886      dTLB-load-misses          #    0.07% of all dTLB cache hits 
+           101,050      cache-misses              #  100.000 % of all cache refs    
+           101,050      cache-references                                            
+
+       3.709453071 seconds time elapsed
+
+# started on Sun Dec  4 12:59:43 2022
+
+
+ Performance counter stats for './list_one_traversal random 10':
+
+               128      faults                                                      
+     1,881,135,083      dTLB-loads                                                  
+           616,750      dTLB-load-misses          #    0.03% of all dTLB cache hits 
+           100,779      cache-misses              #  100.000 % of all cache refs    
+           100,779      cache-references                                            
+
+       2.796632122 seconds time elapsed
+
+# started on Sun Dec  4 12:59:46 2022
+
+
+ Performance counter stats for './list_one_traversal random 11':
+
+               134      faults                                                      
+     1,329,540,877      dTLB-loads                                                  
+           221,115      dTLB-load-misses          #    0.02% of all dTLB cache hits 
+           107,163      cache-misses              #  100.000 % of all cache refs    
+           107,163      cache-references                                            
+
+       1.953225418 seconds time elapsed
+
+# started on Sun Dec  4 12:59:48 2022
+
+
+ Performance counter stats for './list_one_traversal random 12':
+
+               144      faults                                                      
+       940,952,497      dTLB-loads                                                  
+            82,210      dTLB-load-misses          #    0.01% of all dTLB cache hits 
+           141,440      cache-misses              #  100.000 % of all cache refs    
+           141,440      cache-references                                            
+
+       1.970300664 seconds time elapsed
+
+# started on Sun Dec  4 12:59:50 2022
+
+
+ Performance counter stats for './list_one_traversal random 13':
+
+               173      faults                                                      
+       666,323,305      dTLB-loads                                                  
+            31,972      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+           220,585      cache-misses              #  100.000 % of all cache refs    
+           220,585      cache-references                                            
+
+       1.574151954 seconds time elapsed
+
+# started on Sun Dec  4 12:59:52 2022
+
+
+ Performance counter stats for './list_one_traversal random 14':
+
+               221      faults                                                      
+       473,265,985      dTLB-loads                                                  
+            14,742      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+        35,817,788      cache-misses              #  100.000 % of all cache refs    
+        35,817,788      cache-references                                            
+
+       1.252016289 seconds time elapsed
+
+# started on Sun Dec  4 12:59:53 2022
+
+
+ Performance counter stats for './list_one_traversal random 15':
+
+               317      faults                                                      
+       339,198,414      dTLB-loads                                                  
+            10,510      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+        64,110,876      cache-misses              #  100.000 % of all cache refs    
+        64,110,876      cache-references                                            
+
+       1.705079884 seconds time elapsed
+
+# started on Sun Dec  4 12:59:55 2022
+
+
+ Performance counter stats for './list_one_traversal random 16':
+
+               508      faults                                                      
+       247,301,699      dTLB-loads                                                  
+            10,150      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+        63,323,684      cache-misses              #  100.000 % of all cache refs    
+        63,323,684      cache-references                                            
+
+       1.461950852 seconds time elapsed
+
+# started on Sun Dec  4 12:59:57 2022
+
+
+ Performance counter stats for './list_one_traversal random 17':
+
+               891      faults                                                      
+       189,478,167      dTLB-loads                                                  
+            13,133      dTLB-load-misses          #    0.01% of all dTLB cache hits 
+        50,331,023      cache-misses              #  100.000 % of all cache refs    
+        50,331,023      cache-references                                            
+
+       1.193430233 seconds time elapsed
+
+# started on Sun Dec  4 12:59:58 2022
+
+
+ Performance counter stats for './list_one_traversal random 18':
+
+             1,661      faults                                                      
+       163,330,138      dTLB-loads                                                  
+            23,804      dTLB-load-misses          #    0.01% of all dTLB cache hits 
+        37,996,813      cache-misses              #  100.000 % of all cache refs    
+        37,996,813      cache-references                                            
+
+       1.030532013 seconds time elapsed
+
+# started on Sun Dec  4 12:59:59 2022
+
+
+ Performance counter stats for './list_one_traversal random 19':
+
+             3,197      faults                                                      
+       173,964,643      dTLB-loads                                                  
+         7,033,346      dTLB-load-misses          #    4.04% of all dTLB cache hits 
+        28,983,633      cache-misses              #  100.000 % of all cache refs    
+        28,983,633      cache-references                                            
+
+       0.909546515 seconds time elapsed
+
+# started on Sun Dec  4 13:00:01 2022
+
+
+ Performance counter stats for './list_one_traversal random 20':
+
+             6,269      faults                                                      
+       239,792,708      dTLB-loads                                                  
+        12,572,491      dTLB-load-misses          #    5.24% of all dTLB cache hits 
+        23,249,842      cache-misses              #  100.000 % of all cache refs    
+        23,249,842      cache-references                                            
+
+       1.400825291 seconds time elapsed
+
+# started on Sun Dec  4 13:00:02 2022
+
+
+ Performance counter stats for './list_one_traversal random 21':
+
+            12,411      faults                                                      
+       402,668,942      dTLB-loads                                                  
+        12,553,074      dTLB-load-misses          #    3.12% of all dTLB cache hits 
+        22,405,874      cache-misses              #  100.000 % of all cache refs    
+        22,405,874      cache-references                                            
+
+       1.556627612 seconds time elapsed
+
+# started on Sun Dec  4 13:00:04 2022
+
+
+ Performance counter stats for './list_one_traversal random 22':
+
+            24,699      faults                                                      
+       739,998,325      dTLB-loads                                                  
+         9,814,444      dTLB-load-misses          #    1.33% of all dTLB cache hits 
+        24,910,401      cache-misses              #  100.000 % of all cache refs    
+        24,910,401      cache-references                                            
+
+       1.421815432 seconds time elapsed
+
+# started on Sun Dec  4 13:00:06 2022
+
+
+ Performance counter stats for './list_one_traversal random 23':
+
+            49,276      faults                                                      
+     1,453,979,490      dTLB-loads                                                  
+        14,020,660      dTLB-load-misses          #    0.96% of all dTLB cache hits 
+        44,086,646      cache-misses              #  100.000 % of all cache refs    
+        44,086,646      cache-references                                            
+
+       2.620446982 seconds time elapsed
+
+# started on Sun Dec  4 13:00:09 2022
+
+
+ Performance counter stats for './list_one_traversal random 24':
+
+            98,428      faults                                                      
+     2,908,677,281      dTLB-loads                                                  
+        30,461,577      dTLB-load-misses          #    1.05% of all dTLB cache hits 
+        97,206,378      cache-misses              #  100.000 % of all cache refs    
+        97,206,378      cache-references                                            
+
+       5.225425378 seconds time elapsed
+
+# started on Sun Dec  4 13:00:14 2022
+
+
+ Performance counter stats for './list_one_traversal random 25':
+
+           196,733      faults                                                      
+     5,816,840,285      dTLB-loads                                                  
+        63,886,535      dTLB-load-misses          #    1.10% of all dTLB cache hits 
+       207,599,096      cache-misses              #  100.000 % of all cache refs    
+       207,599,096      cache-references                                            
+
+      10.732288424 seconds time elapsed
+
+# started on Sun Dec  4 13:00:25 2022
+
+
+ Performance counter stats for './list_one_traversal random 26':
+
+           393,341      faults                                                      
+    11,628,832,420      dTLB-loads                                                  
+       131,403,995      dTLB-load-misses          #    1.13% of all dTLB cache hits 
+       431,491,661      cache-misses              #  100.000 % of all cache refs    
+       431,491,661      cache-references                                            
+
+      21.838248338 seconds time elapsed
+
+# started on Sun Dec  4 13:00:47 2022
+
+
+ Performance counter stats for './list_one_traversal random 27':
+
+           786,556      faults                                                      
+    23,258,557,956      dTLB-loads                                                  
+       267,780,692      dTLB-load-misses          #    1.15% of all dTLB cache hits 
+       885,150,091      cache-misses              #  100.000 % of all cache refs    
+       885,150,091      cache-references                                            
+
+      47.362622698 seconds time elapsed
+
+# started on Sun Dec  4 13:01:35 2022
+
+
+ Performance counter stats for './list_one_traversal random 28':
+
+         1,572,989      faults                                                      
+    46,526,722,755      dTLB-loads                                                  
+       540,343,218      dTLB-load-misses          #    1.16% of all dTLB cache hits 
+     1,825,901,407      cache-misses              #  100.000 % of all cache refs    
+     1,825,901,407      cache-references                                            
+
+     104.859869772 seconds time elapsed
+
+# started on Sun Dec  4 13:03:20 2022
+
+
+ Performance counter stats for './list_one_traversal random 29':
+
+         3,145,852      faults                                                      
+    93,099,714,690      dTLB-loads                                                  
+     1,088,036,408      dTLB-load-misses          #    1.17% of all dTLB cache hits 
+     3,759,043,558      cache-misses              #  100.000 % of all cache refs    
+     3,759,043,558      cache-references                                            
+
+     232.669988813 seconds time elapsed
+
+# started on Sun Dec  4 13:07:13 2022
+
+
+ Performance counter stats for './list_one_traversal random 30':
+
+         6,291,580      faults                                                      
+   186,142,342,937      dTLB-loads                                                  
+     2,179,179,698      dTLB-load-misses          #    1.17% of all dTLB cache hits 
+     7,914,829,186      cache-misses              #  100.000 % of all cache refs    
+     7,914,829,186      cache-references                                            
+
+     503.444093173 seconds time elapsed
+
+# started on Sun Dec  4 13:15:36 2022
+
+
+ Performance counter stats for './list_one_traversal random 31':
+
+        12,583,039      faults                                                      
+   372,505,818,735      dTLB-loads                                                  
+     4,362,733,568      dTLB-load-misses          #    1.17% of all dTLB cache hits 
+    16,958,671,816      cache-misses              #  100.000 % of all cache refs    
+    16,958,671,816      cache-references                                            
+
+    1078.444940759 seconds time elapsed
+

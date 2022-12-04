@@ -1,0 +1,338 @@
+# started on Sun Dec  4 13:44:42 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 6':
+
+               193      faults                                                      
+     7,704,832,665      dTLB-loads                                                  
+         2,809,063      dTLB-load-misses          #    0.04% of all dTLB cache hits 
+           285,690      cache-misses              #  100.000 % of all cache refs    
+           285,690      cache-references                                            
+
+       9.032715493 seconds time elapsed
+
+# started on Sun Dec  4 13:44:51 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 7':
+
+               192      faults                                                      
+     5,380,384,805      dTLB-loads                                                  
+        13,822,681      dTLB-load-misses          #    0.26% of all dTLB cache hits 
+           177,738      cache-misses              #  100.000 % of all cache refs    
+           177,738      cache-references                                            
+
+       7.143618243 seconds time elapsed
+
+# started on Sun Dec  4 13:44:58 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 8':
+
+               191      faults                                                      
+     3,780,338,832      dTLB-loads                                                  
+         4,894,135      dTLB-load-misses          #    0.13% of all dTLB cache hits 
+           157,698      cache-misses              #  100.000 % of all cache refs    
+           157,698      cache-references                                            
+
+       5.150115547 seconds time elapsed
+
+# started on Sun Dec  4 13:45:04 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 9':
+
+               194      faults                                                      
+     2,665,686,313      dTLB-loads                                                  
+         1,736,098      dTLB-load-misses          #    0.07% of all dTLB cache hits 
+           152,997      cache-misses              #  100.000 % of all cache refs    
+           152,997      cache-references                                            
+
+       3.807254757 seconds time elapsed
+
+# started on Sun Dec  4 13:45:08 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 10':
+
+               197      faults                                                      
+     1,882,626,890      dTLB-loads                                                  
+           618,159      dTLB-load-misses          #    0.03% of all dTLB cache hits 
+           157,685      cache-misses              #  100.000 % of all cache refs    
+           157,685      cache-references                                            
+
+       2.653924358 seconds time elapsed
+
+# started on Sun Dec  4 13:45:11 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 11':
+
+               202      faults                                                      
+     1,331,105,430      dTLB-loads                                                  
+           223,712      dTLB-load-misses          #    0.02% of all dTLB cache hits 
+           173,039      cache-misses              #  100.000 % of all cache refs    
+           173,039      cache-references                                            
+
+       2.103906629 seconds time elapsed
+
+# started on Sun Dec  4 13:45:13 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 12':
+
+               202      faults                                                      
+       941,686,246      dTLB-loads                                                  
+            82,725      dTLB-load-misses          #    0.01% of all dTLB cache hits 
+           190,091      cache-misses              #  100.000 % of all cache refs    
+           190,091      cache-references                                            
+
+       1.420160581 seconds time elapsed
+
+# started on Sun Dec  4 13:45:15 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 13':
+
+               193      faults                                                      
+       666,747,357      dTLB-loads                                                  
+            33,025      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+           213,008      cache-misses              #  100.000 % of all cache refs    
+           213,008      cache-references                                            
+
+       0.885535904 seconds time elapsed
+
+# started on Sun Dec  4 13:45:16 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 14':
+
+               194      faults                                                      
+       472,726,708      dTLB-loads                                                  
+            15,140      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+         1,149,943      cache-misses              #  100.000 % of all cache refs    
+         1,149,943      cache-references                                            
+
+       0.641635966 seconds time elapsed
+
+# started on Sun Dec  4 13:45:17 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 15':
+
+               192      faults                                                      
+       336,144,652      dTLB-loads                                                  
+             9,228      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+        27,901,568      cache-misses              #  100.000 % of all cache refs    
+        27,901,568      cache-references                                            
+
+       0.622599598 seconds time elapsed
+
+# started on Sun Dec  4 13:45:18 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 16':
+
+               190      faults                                                      
+       240,680,824      dTLB-loads                                                  
+             6,095      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+        19,791,028      cache-misses              #  100.000 % of all cache refs    
+        19,791,028      cache-references                                            
+
+       0.514234434 seconds time elapsed
+
+# started on Sun Dec  4 13:45:18 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 17':
+
+               196      faults                                                      
+       175,221,710      dTLB-loads                                                  
+             5,377      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+        14,117,168      cache-misses              #  100.000 % of all cache refs    
+        14,117,168      cache-references                                            
+
+       0.294157615 seconds time elapsed
+
+# started on Sun Dec  4 13:45:19 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 18':
+
+               195      faults                                                      
+       133,802,348      dTLB-loads                                                  
+             5,074      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+        10,271,630      cache-misses              #  100.000 % of all cache refs    
+        10,271,630      cache-references                                            
+
+       0.285865671 seconds time elapsed
+
+# started on Sun Dec  4 13:45:19 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 19':
+
+               202      faults                                                      
+       113,913,930      dTLB-loads                                                  
+             4,840      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+         7,768,998      cache-misses              #  100.000 % of all cache refs    
+         7,768,998      cache-references                                            
+
+       0.223575946 seconds time elapsed
+
+# started on Sun Dec  4 13:45:20 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 20':
+
+               209      faults                                                      
+       118,129,061      dTLB-loads                                                  
+             4,909      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+         6,501,106      cache-misses              #  100.000 % of all cache refs    
+         6,501,106      cache-references                                            
+
+       0.213091028 seconds time elapsed
+
+# started on Sun Dec  4 13:45:20 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 21':
+
+               219      faults                                                      
+       158,066,520      dTLB-loads                                                  
+             4,884      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+         6,523,226      cache-misses              #  100.000 % of all cache refs    
+         6,523,226      cache-references                                            
+
+       0.226594766 seconds time elapsed
+
+# started on Sun Dec  4 13:45:21 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 22':
+
+               240      faults                                                      
+       250,550,453      dTLB-loads                                                  
+             5,014      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+         7,574,640      cache-misses              #  100.000 % of all cache refs    
+         7,574,640      cache-references                                            
+
+       0.240341102 seconds time elapsed
+
+# started on Sun Dec  4 13:45:21 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 23':
+
+               290      faults                                                      
+       473,353,280      dTLB-loads                                                  
+             5,591      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+        12,886,879      cache-misses              #  100.000 % of all cache refs    
+        12,886,879      cache-references                                            
+
+       0.436547202 seconds time elapsed
+
+# started on Sun Dec  4 13:45:22 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 24':
+
+               384      faults                                                      
+       943,959,809      dTLB-loads                                                  
+             6,079      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+        25,692,576      cache-misses              #  100.000 % of all cache refs    
+        25,692,576      cache-references                                            
+
+       0.601541267 seconds time elapsed
+
+# started on Sun Dec  4 13:45:23 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 25':
+
+               579      faults                                                      
+     1,885,528,033      dTLB-loads                                                  
+             7,780      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+        51,336,127      cache-misses              #  100.000 % of all cache refs    
+        51,336,127      cache-references                                            
+
+       1.376096131 seconds time elapsed
+
+# started on Sun Dec  4 13:45:25 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 26':
+
+               963      faults                                                      
+     3,768,478,082      dTLB-loads                                                  
+            11,310      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+       102,432,292      cache-misses              #  100.000 % of all cache refs    
+       102,432,292      cache-references                                            
+
+       2.592476070 seconds time elapsed
+
+# started on Sun Dec  4 13:45:27 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 27':
+
+             1,726      faults                                                      
+     7,534,110,295      dTLB-loads                                                  
+            16,048      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+       204,689,847      cache-misses              #  100.000 % of all cache refs    
+       204,689,847      cache-references                                            
+
+       4.921100988 seconds time elapsed
+
+# started on Sun Dec  4 13:45:33 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 28':
+
+             3,263      faults                                                      
+    15,065,749,312      dTLB-loads                                                  
+            26,129      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+       409,182,896      cache-misses              #  100.000 % of all cache refs    
+       409,182,896      cache-references                                            
+
+       9.717052802 seconds time elapsed
+
+# started on Sun Dec  4 13:45:43 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 29':
+
+             6,336      faults                                                      
+    30,128,753,428      dTLB-loads                                                  
+            47,116      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+       818,235,438      cache-misses              #  100.000 % of all cache refs    
+       818,235,438      cache-references                                            
+
+      19.057687449 seconds time elapsed
+
+# started on Sun Dec  4 13:46:02 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 30':
+
+            12,483      faults                                                      
+    60,250,506,228      dTLB-loads                                                  
+            94,677      dTLB-load-misses          #    0.00% of all dTLB cache hits 
+     1,634,897,522      cache-misses              #  100.000 % of all cache refs    
+     1,634,897,522      cache-references                                            
+
+      37.689167164 seconds time elapsed
+
+# started on Sun Dec  4 13:46:40 2022
+
+
+ Performance counter stats for 'env LD_PRELOAD=libhugetlbfs.so HUGETLB_MORECORE=yes ./list_one_traversal sequential 31':
+
+               191      faults                                                      
+         2,582,556      dTLB-loads                                                  
+             4,262      dTLB-load-misses          #    0.17% of all dTLB cache hits 
+           107,391      cache-misses              #  100.000 % of all cache refs    
+           107,391      cache-references                                            
+
+       0.006104507 seconds time elapsed
+

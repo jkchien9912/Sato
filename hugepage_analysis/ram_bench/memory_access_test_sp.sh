@@ -10,11 +10,13 @@ rm -f ./random_sp_pf.txt
 # Sequential access using standard page 
 for i in {6..31}
 do
+    echo 3 > /proc/sys/vm/drop_caches
     sudo perf stat -e 'faults,dTLB-loads,dTLB-load-misses,cache-misses,cache-references' --output ./seq_sp_pf.txt --append ./list_one_traversal sequential $i >> ./seq_sp_output.txt
 done
 
 # Random access using standard page
 for i in {6..31}
 do 
+    echo 3 > /proc/sys/vm/drop_caches
     sudo perf stat -e 'faults,dTLB-loads,dTLB-load-misses,cache-misses,cache-references' --output ./random_sp_pf.txt  --append ./list_one_traversal random $i >> ./random_sp_output.txt
 done 
