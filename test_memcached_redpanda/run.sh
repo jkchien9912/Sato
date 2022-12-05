@@ -4,6 +4,7 @@ curl -1sLf \
   | sudo -E bash
   
 sudo apt-get install redpanda
+sudo systemctl start redpanda
 # install memcached
 sudo apt update
 sudo apt install memcached
