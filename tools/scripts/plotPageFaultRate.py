@@ -6,7 +6,7 @@ import sys
 import itertools
 
 colors = itertools.cycle(["blue", "green", "red", "orange", "purple"])
-labels = ['16k', '8k', '4k', '2k', '1k']
+labels = ['1k', '2k', '4k', '8k', '16k']
 plots = []
 
 for i in range(len(sys.argv)):

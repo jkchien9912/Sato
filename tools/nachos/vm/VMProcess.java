@@ -98,10 +98,12 @@ public class VMProcess extends UserProcess {
         pageFaultCounter++;
         
         int vpn = Processor.vpnFromAddress(vaddr);
-        numPhysPages = Machine.processor().updatePageSize();
+        // we need the following line for dynamic page sizing
+        // numPhysPages = Machine.processor().updatePageSize();
+        mappingRatio = Processor.virtualPageSize/Processor.physicalPageSize;
         // Evict current physical pages to get slots (include remote fetching)
         if(VMKernel.freePhysicalPages.size() < numPhysPages) {
-            pageEviction();
+            pageEviction(numPhysPages);
         }
 
         // Get new physical pages (this will actual drain physical page for other processes)
@@ -127,7 +129,7 @@ public class VMProcess extends UserProcess {
 
         // Update page table
         // for this virtual page it points to the head of the physical page list
-        for (int i = 0; i < numPhysPages; i += 4) {
+        for (int i = 0; i < numPhysPages; i += mappingRatio) {
             this.pageTable[vpn].physPage = pages[i];
             this.pageTable[vpn].valid = true;
             Machine.processor().updateLRUList(vpn);
@@ -135,17 +137,19 @@ public class VMProcess extends UserProcess {
         }
     }
 
-    public void pageEviction() {
+    public void pageEviction(int num2Evict) {
         // Remove the first one from the LRU list
-        int target = this.lruList.remove(0);
-        this.pageTable[target].valid = false;
-        PhysPage cur = this.pageTable[target].physPage;
-        while(cur != null){
-            // TODO: implement coallocating policy
-            VMKernel.freePhysicalPages.add(cur.ppn);
-            cur = cur.next;
+        for (int i = 0; i < num2Evict; i += mappingRatio) {
+            int target = this.lruList.remove(0);
+            this.pageTable[target].valid = false;
+            PhysPage cur = this.pageTable[target].physPage;
+            while(cur != null){
+                // TODO: implement coallocating policy
+                VMKernel.freePhysicalPages.add(cur.ppn);
+                cur = cur.next;
+            }
+            this.pageTable[target].physPage = null;
         }
-        this.pageTable[target].physPage = null;
     }
 
     public void fetchRemotePage(int count) {
@@ -171,6 +175,9 @@ public class VMProcess extends UserProcess {
     // The size of each physical page is fixed to 1K bytes
     // The virtual page size will be fixed but dynamic as the goal of this project
     private int numPhysPages = Processor.virtualPageSize/Processor.physicalPageSize;
+
+    // The number of physical pages matches to a single virtual page
+    private int mappingRatio = Processor.virtualPageSize/Processor.physicalPageSize;
 	private static final char dbgVM = 'v';
 
     private static Socket socket;
